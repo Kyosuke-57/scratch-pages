@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>はじめての開業チェックリスト — scratch pages</title>
+<style>
+  :root {
+    --ink: #0E1B2E;
+    --ink-2: #1A2D4A;
+    --ink-3: #3A4A66;
+    --ink-soft: #6B7A92;
+    --paper: #FBFAF6;
+    --paper-2: #F2EEE6;
+    --line: rgba(14, 27, 46, 0.08);
+    --coral: #E76F51;
+    --coral-soft: #F4A38F;
+    --coral-bg: #FCEEE7;
+    --teal: #2A9D8F;
+    --teal-bg: #E5F2EF;
+    --gold: #D4A24C;
+    --shadow: 0 8px 24px rgba(14, 27, 46, 0.06);
+    --shadow-lg: 0 20px 60px rgba(14, 27, 46, 0.12);
+    --r: 20px;
+    --r-lg: 28px;
+    --container: 780px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* ヘッダー */
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--line);
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .page-header p.sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .page-header .target-box {
+    margin-top: 20px;
+    background: var(--teal-bg);
+    border-radius: var(--r);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--teal);
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  /* 目次 */
+  .toc {
+    background: #fff;
+    border-radius: var(--r);
+    padding: 28px 32px;
+    box-shadow: var(--shadow);
+    margin-bottom: 48px;
+  }
+  .toc h2 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+  .toc ol {
+    list-style: none;
+    counter-reset: toc-counter;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .toc ol li {
+    counter-increment: toc-counter;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .toc ol li:last-child { border-bottom: none; }
+  .toc ol li a {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .toc ol li a::before {
+    content: counter(toc-counter);
+    min-width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .toc ol li a:hover { color: var(--coral); }
+
+  /* ステップカード */
+  .step {
+    margin-bottom: 40px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .step-header {
+    padding: 24px 32px 20px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .step-header .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-header .step-title-area { flex: 1; }
+  .step-header .step-title-area h2 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .step-header .step-title-area .step-time {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .step-body {
+    padding: 24px 32px 28px;
+  }
+
+  .step-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .step-body p:last-child { margin-bottom: 0; }
+
+  .step-body ol, .step-body ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 16px;
+  }
+  .step-body ol:last-child, .step-body ul:last-child { margin-bottom: 0; }
+
+  .step-body ol > li {
+    counter-increment: sub-counter;
+    padding: 8px 0 8px 36px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .step-body ol > li:last-child { border-bottom: none; }
+  .step-body ol { counter-reset: sub-counter; }
+  .step-body ol > li::before {
+    content: counter(sub-counter);
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--paper-2);
+    color: var(--ink-soft);
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-body ul > li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .step-body ul > li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--coral-soft);
+  }
+
+  .step-body .deadline {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .step-body .deadline.ok {
+    background: var(--teal-bg);
+    color: var(--teal);
+  }
+
+  /* ハイライトボックス */
+  .highlight {
+    background: var(--coral-bg);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .highlight strong { color: var(--coral); }
+
+  .tip {
+    background: var(--teal-bg);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .tip strong { color: var(--teal); }
+
+  .warn {
+    background: #FFF8EE;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .warn strong { color: #B8860B; }
+
+  /* チェックリスト */
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--coral);
+    flex-shrink: 0;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+  .check-item label { cursor: pointer; flex: 1; }
+  .check-item label .check-note {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  .check-item input[type="checkbox"]:checked + label {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+  }
+  .check-item input[type="checkbox"]:checked + label .check-note {
+    text-decoration: none;
+  }
+
+  /* 用語解説 */
+  .glossary dl {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .glossary .term {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .glossary .term:last-child { border-bottom: none; }
+  .glossary dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .glossary dt .term-badge {
+    background: var(--paper-2);
+    color: var(--ink-soft);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+  }
+  .glossary dd {
+    font-size: 13px;
+    color: var(--ink-3);
+    margin-top: 4px;
+    line-height: 1.7;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 20px 16px 60px; }
+    .page-header h1 { font-size: 22px; }
+    .step-header, .step-body { padding: 20px; }
+    .toc { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- トップに戻る -->
+  <div style="margin-bottom: 24px;">
+    <a href="/" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-soft);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--coral)'" onmouseout="this.style.color=''">← Scratch Pages トップに戻る</a>
+  </div>
+
+  <!-- ========== ヘッダー ========== -->
+  <div class="page-header">
+    <span class="badge">個人事業主 開業ガイド</span>
+    <h1>はじめての開業<br>チェックリスト</h1>
+    <p class="sub">開業届・銀行口座・クレジットカード・会計ソフト…<br>やること全部を、順番どおりに</p>
+    <div class="target-box">👤 このページは「お金・税金の知識がない方」向けです</div>
+  </div>
+
+  <!-- ========== はじめに ========== -->
+  <div style="margin-bottom:40px;background:#fff;border-radius:28px;box-shadow:0 8px 24px rgba(14,27,46,0.06);padding:28px 32px;">
+    <h2 style="font-size:16px;font-weight:700;margin-bottom:12px;">📖 最初に読んでください</h2>
+    <p style="font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:12px;">
+      <strong>個人事業主</strong>とは、会社を作らずに「個人」のままで仕事をして収入を得る働き方のこと。会社員のまま副業として始める人も多いよ。
+    </p>
+    <p style="font-size:14px;color:var(--ink-2);line-height:1.8;margin-bottom:12px;">
+      開業に必要なことは、大きく分けると次の4つ。<strong>①準備 → ②書類 → ③お金まわり → ④事業を回す</strong>の順番で進めるとスムーズ。
+    </p>
+    <p style="font-size:14px;color:var(--ink-2);line-height:1.8;">
+      このページの下の方に、<strong>チェックリスト</strong>も用意してあるよ。☑しながら進めてね。
+    </p>
+  </div>
+
+  <!-- ========== 目次 ========== -->
+  <div class="toc">
+    <h2>📋 このページの内容</h2>
+    <ol>
+      <li><a href="#step1">開業前に準備するもの（期限なし）</a></li>
+      <li><a href="#step2">開業してから出す書類（期限が大事）</a></li>
+      <li><a href="#step3">お金まわりを固める</a></li>
+      <li><a href="#step4">事業を回すために</a></li>
+      <li><a href="#checklist">✅ チェックリスト</a></li>
+      <li><a href="#glossary">📚 用語解説（やさしい言葉で）</a></li>
+      <li><a href="#notice">⚠️ 注意したいポイント</a></li>
+    </ol>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 1 -->
+  <!-- ============================================================ -->
+  <div class="step" id="step1">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-title-area">
+        <h2>開業前に準備するもの</h2>
+        <div class="step-time">期限はないので、自分のペースでOK</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>最初に、お店の「名前」と「お金の受け皿」を用意するよ。ここが揃うと、あとの手続きがぐっと楽になる。</p>
+      <ol>
+        <li><strong>屋号（おくごう）を決める</strong><br>お店の名前みたいなもの。請求書や銀行口座・領収書に使う。例：mamacare
+          <span class="deadline ok">先に決めておくと楽</span></li>
+        <li><strong>印鑑（はんこ）を作る</strong><br>「銀行印」と「認印」の2つがあると安心。銀行口座を開くときに必要になる。</li>
+        <li><strong>事業用の銀行口座を開く</strong><br>プライベートとお金を分けるため。屋号が入った口座（例：三井住友銀行の屋号付き口座）がおすすめ。<br>必要書類は「開業届の写し」と「本人確認書類（運転免許証・マイナンバーカードなど）」。</li>
+        <li><strong>会計ソフトを契約する</strong><br>日々のお金の記録（記帳）をラクにする道具。例：やよいの青色申告オンライン（年11,800円〜）。開業届の作成もできる。</li>
+        <li><strong>経費のルールを決める</strong><br>「事業で使うお金は、この口座・このカードから払う」と決めておくと、あとで経費の計算が簡単になる。</li>
+      </ol>
+      <div class="tip">
+        <strong>💡 コツ:</strong> 事業用の支出は <strong>全部レシート・領収書を保管</strong>しよう。カード明細だけでもOK。あとで「経費（必要なお金）」として計上できる。
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 2 -->
+  <!-- ============================================================ -->
+  <div class="step" id="step2">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-title-area">
+        <h2>開業してから出す書類</h2>
+        <div class="step-time">ここだけ期限があるから注意！</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <p>「事業を始めました」と国や市区町村に知らせる書類を出すよ。出す場所と期限がそれぞれ違うので、確認しながら進めてね。</p>
+      <ol>
+        <li><strong>開業届（個人事業の開廃業等届出書）</strong><br>税務署に「事業を始めました」と伝える書類。これがないと口座開設や青色申告ができない。
+          <span class="deadline ok">期限: その年の確定申告期限まで</span><br><span style="font-size:12px;color:var(--ink-soft);">例：2026年4月1日に開業した場合 → 2027年3月15日までに提出すればOK。昔より期限がゆるくなったよ。</span></li>
+        <li><strong>青色申告承認申請書（あおいろしんこくしょうにんしんせいしょ）</strong><br>「青色申告」という<strong>お得な申告方法</strong>を使うための申請書。最大65万円の控除（税金の負担が減る）や、赤字を3年間繰り越せる特典がある。
+          <span class="deadline">期限: 開業日から2ヶ月以内</span><br><span style="font-size:12px;color:var(--ink-soft);">⚠️ この期限を過ぎると、その年の分は「白色申告」になる。翌年から青色にできる。開業したらすぐ出そう！</span></li>
+        <li><strong>事業開始等申告書</strong><br>住んでいる市区町村に出す書類（住民税の計算用）。1ヶ月以内が目安。遅れても受け付けてもらえることが多いよ。</li>
+      </ol>
+      <div class="highlight">
+        <strong>📌 会社を辞めて開業した人は追加で:</strong> 国民健康保険・国民年金への切り替え手続きが必要。退職日から14日以内が目安。
+      </div>
+      <div class="warn">
+        <strong>⚠️ 65万円の控除には条件あり:</strong> 最近は「e-Tax（ネットで確定申告）」+「電子帳簿保存（パソコンで帳簿を管理）」が条件。会計ソフトを使えば対応できるので、青色申告を選ぶなら会計ソフトはほぼ必須だよ。
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 3 -->
+  <!-- ============================================================ -->
+  <div class="step" id="step3">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-title-area">
+        <h2>お金まわりを固める</h2>
+        <div class="step-time">ここまでできたら、もう開業したも同然</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <ol>
+        <li><strong>クレジットカードを用意する</strong><br>開業直後は、個人カードを事業用に分けて使うのが現実的。銀行のビジネスカード（例：三井住友ビジネスカード）も開業後すぐ作れる。</li>
+        <li><strong>請求書・領収書のテンプレートを準備する</strong><br>会計ソフトに付属していることが多い。お客さんに渡す書類の型を用意しておこう。</li>
+        <li><strong>レシート・領収書をまとめる場所を作る</strong><br>封筒1つでもOK。「2026年分」みたいに年ごとに分けると確定申告がラク。</li>
+      </ol>
+      <div class="tip">
+        <strong>💡 コツ:</strong> 「事業用の支払い = 事業用の口座・カードだけ」にすると、経費が一目瞭然。会計ソフトの入力がほとんど自動になるよ。
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- STEP 4 -->
+  <!-- ============================================================ -->
+  <div class="step" id="step4">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-title-area">
+        <h2>事業を回すために</h2>
+        <div class="step-time">開業後のことは、余裕があるときに</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <ol>
+        <li><strong>インボイス登録を検討する</strong><br>「インボイス（適格請求書）」という、消費税の計算に必要な書類を発行するための登録。<strong>取引先に会社（法人）がいるなら登録しておくと安心</strong>。個人のお客さんだけなら急がなくてもOK。
+          <span class="deadline ok">2027年・2028年分は3割特例あり</span></li>
+        <li><strong>お客さんに知ってもらう（販促）</strong><br>Googleビジネスプロフィール（地図検索に出る）、SNS、ホームページ。無料で始められるものから。</li>
+        <li><strong>補助金をチェックする</strong><br>「小規模事業者持続化補助金」など、個人事業主向けの補助金が年に数回募集される。50万円〜の補助が出ることも。</li>
+      </ol>
+      <div class="highlight">
+        <strong>📌 インボイスとは:</strong> 消費税を正しく計算するための「登録番号入りの請求書・領収書」。発行するには国への登録が必要。登録すると消費税の申告が必要になるけど、<strong>2027年・2028年分は「3割特例」</strong>（納める消費税が売上の3割でOK）という優遇がある。詳しくは用語解説へ。
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- チェックリスト -->
+  <!-- ============================================================ -->
+  <div class="step" id="checklist">
+    <div class="step-header">
+      <div class="step-num" style="background:var(--teal);">✓</div>
+      <div class="step-title-area">
+        <h2>チェックリスト</h2>
+        <div class="step-time">タップ（クリック）でチェックできるよ。印刷してもOK</div>
+      </div>
+    </div>
+    <div class="step-body">
+
+      <h3 style="font-size:14px;font-weight:700;color:var(--teal);margin-bottom:8px;">📦 開業前の準備</h3>
+      <div style="margin-bottom:20px;">
+        <div class="check-item"><input type="checkbox" id="c1"><label for="c1">屋号を決めた<span class="check-note">例：mamacare</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c2"><label for="c2">印鑑（銀行印・認印）を作った</label></div>
+        <div class="check-item"><input type="checkbox" id="c3"><label for="c3">事業用の銀行口座を開いた<span class="check-note">屋号付き口座がおすすめ</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c4"><label for="c4">会計ソフトを契約した<span class="check-note">例：やよいの青色申告オンライン</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c5"><label for="c5">経費のルールを決めた<span class="check-note">事業用の支払いは専用口座・カードで</span></label></div>
+      </div>
+
+      <h3 style="font-size:14px;font-weight:700;color:var(--coral);margin-bottom:8px;">📋 開業後の書類（期限注意！）</h3>
+      <div style="margin-bottom:20px;">
+        <div class="check-item"><input type="checkbox" id="c6"><label for="c6">開業届を出した<span class="check-note">税務署。期限: その年の確定申告期限まで</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c7"><label for="c7">青色申告承認申請書を出した<span class="check-note">税務署。期限: 開業日から2ヶ月以内</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c8"><label for="c8">事業開始等申告書を出した<span class="check-note">市区町村。1ヶ月以内が目安</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c9"><label for="c9">保険・年金の切り替えをした<span class="check-note">会社を辞めた場合のみ。国民健康保険・国民年金</span></label></div>
+      </div>
+
+      <h3 style="font-size:14px;font-weight:700;color:var(--gold);margin-bottom:8px;">💳 お金まわり</h3>
+      <div style="margin-bottom:20px;">
+        <div class="check-item"><input type="checkbox" id="c10"><label for="c10">事業用のクレジットカードを用意した</label></div>
+        <div class="check-item"><input type="checkbox" id="c11"><label for="c11">請求書・領収書のテンプレートを用意した</label></div>
+        <div class="check-item"><input type="checkbox" id="c12"><label for="c12">レシート・領収書の保管場所を決めた</label></div>
+      </div>
+
+      <h3 style="font-size:14px;font-weight:700;color:var(--ink-soft);margin-bottom:8px;">🚀 事業を回す</h3>
+      <div>
+        <div class="check-item"><input type="checkbox" id="c13"><label for="c13">インボイス登録を検討した<span class="check-note">法人相手なら登録推奨</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c14"><label for="c14">販促手段を始めた<span class="check-note">Googleビジネスプロフィール / SNS / HP</span></label></div>
+        <div class="check-item"><input type="checkbox" id="c15"><label for="c15">補助金をチェックした</label></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 用語解説 -->
+  <!-- ============================================================ -->
+  <div class="step glossary" id="glossary">
+    <div class="step-header">
+      <div class="step-num" style="background:var(--gold);">📚</div>
+      <div class="step-title-area">
+        <h2>用語解説</h2>
+        <div class="step-time">難しい言葉をやさしく説明</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <dl>
+        <div class="term"><dt>屋号 <span class="term-badge">おくごう</span></dt><dd>お店や仕事の「名前」。本名と違っていてOK。請求書・銀行口座・領収書に使う。</dd></div>
+        <div class="term"><dt>開業届 <span class="term-badge">かいぎょうとどけ</span></dt><dd>「事業を始めました」と税務署に伝える書類。正式名は「個人事業の開廃業等届出書」。</dd></div>
+        <div class="term"><dt>青色申告 <span class="term-badge">あおいろしんこく</span></dt><dd>正しい帳簿（記録）をつける人のための<strong>お得な申告方法</strong>。最大65万円の控除、赤字の3年繰越などの特典がある。使うには事前の申請が必要。</dd></div>
+        <div class="term"><dt>白色申告 <span class="term-badge">しろいろしんこく</span></dt><dd>青色申告を使わない場合の普通の申告。特別な控除はないけど、経費の計上や赤字の申告はできる。</dd></div>
+        <div class="term"><dt>経費 <span class="term-badge">けいひ</span></dt><dd>仕事のために使ったお金。売上から引ける（=税金が減る）。例：パソコン代、通信費、打ち合わせの飲食代。</dd></div>
+        <div class="term"><dt>免税事業者 <span class="term-badge">めんぜいじぎょうしゃ</span></dt><dd>売上が1,000万円以下の事業者。消費税を納めなくていい。開業してすぐは誰でもこれに該当する。</dd></div>
+        <div class="term"><dt>インボイス（適格請求書）<span class="term-badge">てきかくせいきゅうしょ</span></dt><dd>消費税の計算に必要な「登録番号入りの請求書・領収書」。発行するには国への登録が必要。法人相手の取引だと、相手がこれを受け取れないと消費税の控除ができなくなる。</dd></div>
+        <div class="term"><dt>3割特例 <span class="term-badge">さんわりとくれい</span></dt><dd>インボイス登録した個人事業主向けの優遇。2027年・2028年分の消費税が「売上にかかる消費税の3割」でOKになる（2026年度の税制改正で新設）。</dd></div>
+        <div class="term"><dt>開業費 <span class="term-badge">かいぎょうひ</span></dt><dd>開業日より前に事業の準備で使ったお金。開業後の経費と同じように計上できる（開業日の3年前からが対象）。</dd></div>
+        <div class="term"><dt>確定申告 <span class="term-badge">かくていしんこく</span></dt><dd>1年間の収入と経費をまとめて、税務署に「このくらい稼ぎました」と申告すること。個人事業主は毎年3月15日までにやる。</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- 注意ポイント -->
+  <!-- ============================================================ -->
+  <div class="step" id="notice">
+    <div class="step-header">
+      <div class="step-num" style="background:var(--ink-2);">⚠️</div>
+      <div class="step-title-area">
+        <h2>注意したいポイント</h2>
+        <div class="step-time">「こんな場合は？」の答え</div>
+      </div>
+    </div>
+    <div class="step-body">
+      <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">🏢 会社員のまま開業する場合</h3>
+      <ul style="margin-bottom:20px;">
+        <li>会社の<strong>就業規則で副業がOKか確認</strong>しよう（黙って始めると後でトラブルに）。</li>
+        <li>確定申告のときに、副業分の住民税を<strong>「普通徴収」（自分で払う）</strong>にすると、会社に副業が知られにくい。</li>
+        <li>副業の収入（経費を引いた利益）が20万円を超えると確定申告が必要。</li>
+      </ul>
+
+      <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">👪 扶養に入ったまま開業する場合</h3>
+      <ul style="margin-bottom:20px;">
+        <li>税金の扶養（配偶者控除）: <strong>合計所得48万円以下</strong>に収める。<br><span style="font-size:12px;color:var(--ink-soft);">※事業所得は「売上 − 経費 − 控除」で計算。経費をしっかり計上すれば収めやすい。</span></li>
+        <li>社会保険の扶養: <strong>年収130万円未満</strong>が目安。</li>
+      </ul>
+
+      <h3 style="font-size:14px;font-weight:700;margin-bottom:8px;">📅 開業日を過去にさかのぼって設定したい場合</h3>
+      <ul>
+        <li>開業日は「<strong>実際に事業を始めた日</strong>」を書く。準備を始めて経費（支出）が出始めた日を開業日にできる。</li>
+        <li>開業日前の支出は「開業費」として経費にできるので、焦って日付を早めなくてもOK。</li>
+        <li>ただし青色申告の申請期限（開業日から2ヶ月）には注意。過ぎていたら、その年は白色申告、翌年から青色になる。</li>
+      </ul>
+
+      <div class="warn">
+        <strong>⚠️ このページの情報について:</strong> 2026年7月時点の情報です。税のルールは変わることがあるので、手続きの前に<strong>国税庁の公式サイト（nta.go.jp）</strong>で最新情報を確認してね。
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== フッター ========== -->
+  <div style="text-align:center;margin-top:56px;padding-top:24px;border-top:2px solid var(--line);">
+    <p style="font-size:12px;color:var(--ink-soft);">Scratch Pages — はじめての開業チェックリスト | 公開: 2026.07.31</p>
+  </div>
+
+</div>
+</body>
+</html>
