@@ -632,5 +632,29 @@
   </div>
 
 </div>
+
+<script>
+// チェック状態をブラウザに保存する（更新しても消えない）
+(function () {
+  var KEY = "kaigyo-checklist-v1";
+  var boxes = document.querySelectorAll('.check-item input[type="checkbox"]');
+
+  function save() {
+    var state = {};
+    boxes.forEach(function (cb) { state[cb.id] = cb.checked; });
+    try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function load() {
+    try {
+      var state = JSON.parse(localStorage.getItem(KEY) || "{}");
+      boxes.forEach(function (cb) { if (state[cb.id]) cb.checked = true; });
+    } catch (e) {}
+  }
+
+  load();
+  boxes.forEach(function (cb) { cb.addEventListener("change", save); });
+})();
+</script>
 </body>
 </html>
