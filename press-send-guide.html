@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>プレスリリース 送付ガイド：メール文面・FAX・電話スクリプト・Q&A — scratch pages</title>
+<meta name="description" content="mamacare プレスリリース送付時のメール文面、FAXカバーレター、フォローアップ電話スクリプト、想定Q&A、配信前チェックリスト。雛形はそのままコピーして使えます。" />
+<style>
+  :root {
+    --ink: #0E1B2E;
+    --ink-2: #1A2D4A;
+    --ink-3: #3A4A66;
+    --ink-soft: #6B7A92;
+    --paper: #FBFAF6;
+    --paper-2: #F2EEE6;
+    --line: rgba(14, 27, 46, 0.08);
+    --coral: #E76F51;
+    --coral-soft: #F4A38F;
+    --coral-bg: #FCEEE7;
+    --teal: #2A9D8F;
+    --teal-bg: #E5F2EF;
+    --gold: #D4A24C;
+    --shadow: 0 8px 24px rgba(14, 27, 46, 0.06);
+    --shadow-lg: 0 20px 60px rgba(14, 27, 46, 0.12);
+    --r: 20px;
+    --r-lg: 28px;
+    --container: 780px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* ヘッダー */
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--line);
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+  }
+  .page-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .page-header p.sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .page-header .release-meta {
+    margin-top: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .page-header .release-meta .meta-chip {
+    background: var(--paper-2);
+    color: var(--ink-3);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* リードボックス */
+  .lead-box {
+    margin-bottom: 40px;
+    background: var(--teal-bg);
+    border-radius: var(--r);
+    padding: 24px 28px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.9;
+  }
+  .lead-box strong { color: var(--teal); }
+
+  /* セクションカード */
+  .section-card {
+    margin-bottom: 32px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .section-card .sec-header {
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-card .sec-header .sec-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-card .sec-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .section-card .sec-body {
+    padding: 20px 28px 24px;
+  }
+
+  /* 本文 */
+  .sec-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .sec-body p:last-child { margin-bottom: 0; }
+  .sec-body strong { color: var(--ink); }
+
+  /* サブ見出し */
+  .subheading {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 20px 0 10px;
+    padding-left: 12px;
+    border-left: 3px solid var(--coral);
+    line-height: 1.5;
+  }
+  .subheading:first-child { margin-top: 0; }
+
+  /* リスト */
+  .sec-body ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 16px;
+  }
+  .sec-body ul:last-child { margin-bottom: 0; }
+  .sec-body ul > li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-body ul > li:last-child { border-bottom: none; }
+  .sec-body ul > li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 17px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--coral-soft);
+  }
+
+  /* ハイライト / ノート */
+  .note {
+    background: #FFF8EE;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin: 16px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+  .note strong { color: #B8860B; }
+
+  /* テーブル */
+  .info-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .info-table th, .info-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .info-table th {
+    background: var(--paper-2);
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .info-table tr:last-child td, .info-table tr:last-child th {
+    border-bottom: none;
+  }
+
+  /* ===== コピー用ブロック ===== */
+  .copy-label {
+    display: inline-block;
+    background: var(--coral);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+    margin: 8px 0 10px;
+  }
+  .copy-block {
+    background: var(--paper-2);
+    border: 2px dashed rgba(14, 27, 46, 0.18);
+    border-radius: var(--r);
+    padding: 20px 24px;
+    font-family: ui-monospace, "SF Mono", Menlo, "Noto Sans Mono", monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--ink-2);
+    overflow-x: auto;
+    white-space: pre;
+    margin: 0 0 12px;
+  }
+
+  /* チェックリスト */
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .checklist li {
+    position: relative;
+    padding: 12px 0 12px 34px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    border-bottom: 1px solid var(--line);
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 15px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--coral-soft);
+    border-radius: 6px;
+    background: #fff;
+  }
+
+  /* 関連ページナビ */
+  .page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 28px 0 0;
+    margin-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .page-nav a {
+    color: var(--coral);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 8px 18px;
+    border: 1px solid var(--coral-soft);
+    border-radius: 999px;
+    background: #fff;
+    transition: background 0.2s;
+  }
+  .page-nav a:hover {
+    background: var(--coral-bg);
+  }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    padding: 40px 0 16px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="page-header">
+    <span class="badge">PRESS KIT / 送付ガイド</span>
+    <h1>プレスリリース 送付ガイド<br />メール文面・FAX・電話スクリプト・Q&A</h1>
+    <p class="sub">配信時のメール本文、FAXカバーレター、フォローアップ電話スクリプト、想定Q&A、配信前チェックリストの実務テンプレート</p>
+    <div class="release-meta">
+      <span class="meta-chip">配信日: 2026年8月3日</span>
+      <span class="meta-chip">対象: mamacare 沖縄展開リリース</span>
+    </div>
+  </header>
+
+  <div class="lead-box">
+    <strong>対象リリース</strong>: 産後ケア施設向けクラウド「mamacare」沖縄県内施設への展開開始（2026年8月3日付）。メール文面・FAXカバーレター・電話スクリプト・想定Q&A・配信前チェックリストをまとめた実務ガイドです。雛形はそのままコピーしてお使いいただけます。
+  </div>
+
+  <!-- 1. 送付メール本文 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">1</div>
+      <h2>送付メール本文</h2>
+    </div>
+    <div class="sec-body">
+
+      <div class="subheading">件名（案）</div>
+      <span class="copy-label">件名案 / コピー用</span>
+<pre class="copy-block">【プレスリリース】産後ケア施設で働くスタッフが開発した「mamacare」、沖縄県内施設への展開を開始 ／ 初期費用無料・2ヶ月トライアル</pre>
+      <div class="note"><strong>※</strong> 件名に「【プレスリリース】」+ 要点（産後ケア × 沖縄）を入れる。新聞社の共通メールボックスには大量のPRが届くため、件名で拾われるかが勝負。</div>
+
+      <div class="subheading">本文（そのまま使える雛形）</div>
+      <span class="copy-label">本文雛形 / コピー用</span>
+<pre class="copy-block">━━━━━━━━━━━━━━━━━━━━━━━━━━━
+【プレスリリース】配信日：2026年8月3日
+産後ケア施設向け予約・カルテ・決済クラウド「mamacare（ママケア）」
+━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+報道関係者各位
+
+平素よりお世話になっております。
+産後ケア施設向けの予約・顧客管理・ケア記録クラウド「mamacare（ママケア）」
+（https://mamacare.jp）を運営する平田亜紀子です。
+
+このたび、沖縄県内の産後ケアセンター・助産院・子育て支援施設に向けた
+導入促進を開始いたしましたので、ご案内申し上げます。
+
+【リリース要旨】
+・開発者は、実際に沖縄県内の産後ケア施設で働くスタッフ
+  「施設のスタッフをもっと楽にしたい」から生まれたシステム
+・ママがスマホで予約・キャンセル、LINEで自動通知、事前問診カルテ、
+  スタッフノート、オンライン事前決済までを一元化
+・最終目標は産後ケアの「ホットペッパー」ーーすべての施設が一覧で見えて、
+  空き状況がひと目でわかる社会
+・初期費用無料・2ヶ月間の無料トライアル、オンラインで初期設定サポート
+
+リリース全文はこちら：
+https://scratch-pages.vercel.app/press-release
+
+サービス画面のスクリーンショット等の画像素材もご用意しております。
+ご取材・ご質問がございましたら、お気軽に下記までご連絡ください。
+
+【本件に関するお問い合わせ】
+mamacare（ママケア）サポート窓口
+メール：support@mamacare.jp
+━━━━━━━━━━━━━━━━━━━━━━━━━━━</pre>
+
+    </div>
+  </section>
+
+  <!-- 2. メディア別差し替えポイント -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">2</div>
+      <h2>メディア別差し替えポイント</h2>
+    </div>
+    <div class="sec-body">
+      <p>送付時に本文の1文だけ、以下のメディア向け文言に差し替えます。</p>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr>
+            <th>メディア</th>
+            <th>追加・差し替えする1文</th>
+          </tr>
+          <tr>
+            <td>琉球新報・沖縄タイムス<br />（社会面・経済面）</td>
+            <td>「県内の産後ケア施設で働くスタッフが開発した点が特徴で、地元発の取り組みとして紹介いただけると幸いです」</td>
+          </tr>
+          <tr>
+            <td>テレビ局（報道部）</td>
+            <td>「施設での利用イメージ（画面操作・LINE通知の様子）など、映像素材のご用意も可能です。ご希望があればご相談ください」</td>
+          </tr>
+          <tr>
+            <td>ラジオ（情報番組）</td>
+            <td>「開発者の平田が番組でお話しできます（テーマ例：産後ケアの空き状況が見えない問題・現場のリアルな声）。ゲスト枠でご検討ください」</td>
+          </tr>
+          <tr>
+            <td>全国紙支局</td>
+            <td>「沖縄県の産後ケアを取り巻く課題と、それを解決しようとする地元発の取り組みとして、ご一報いただけますと幸いです」</td>
+          </tr>
+          <tr>
+            <td>経済・ビジネス系</td>
+            <td>「産後ケア施設の業務デジタル化という新市場への取り組みとしてご紹介ください」</td>
+          </tr>
+          <tr>
+            <td>コミュニティFM<br />（FMよみたん・FMレキオ）</td>
+            <td>「読谷村（那覇市）周辺の子育て世帯にも役立つ情報です。リスナー向けのご案内・プレゼント企画などもご相談できます」</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. FAXカバーレター -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">3</div>
+      <h2>FAX送付用カバーレター</h2>
+    </div>
+    <div class="sec-body">
+      <p>FAXには以下の1枚を先頭に付けます（新聞・テレビはFAXが確実なルートです）。</p>
+      <span class="copy-label">FAXカバーレター / コピー用</span>
+<pre class="copy-block">【FAX送付書】 2026年8月X日
+宛先：◯◯新聞社 編集局（政経部／社会部）御中
+差出：mamacare（ママケア）運営 平田亜紀子
+連絡先：support@mamacare.jp
+
+件名：【プレスリリース】産後ケア施設向けクラウド「mamacare」、沖縄県内施設への展開を開始
+
+全◯枚のうち 1枚目。続きの2枚目にリリース全文を記載しています。
+ご取材・画像素材のご要望は support@mamacare.jp まで。</pre>
+      <div class="note"><strong>※</strong> FAX送信後、電話（098-XXX-XXXX 報道部）で「リリースをFAXしました。受信確認いただけますか」と確認すると確実。</div>
+    </div>
+  </section>
+
+  <!-- 4. フォローアップ電話 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">4</div>
+      <h2>フォローアップ電話（送付1週間後）</h2>
+    </div>
+    <div class="sec-body">
+
+      <div class="subheading">スクリプト</div>
+      <span class="copy-label">電話スクリプト / コピー用</span>
+<pre class="copy-block">「先週◯月◯日にプレスリリースをFAX（メール）でお送りした
+ mamacare（ママケア）の平田です。産後ケア施設向けの予約システムの
+ ご案内ですが、ご確認いただけましたでしょうか」
+
+→ 興味あり：「取材のご希望があれば画像素材や詳細資料をお送りします」
+→ 保留：「◯月◯日までお待ちしております。何かご質問があればいつでもご連絡ください」
+→ 不要：「承知しました。また新情報がございましたらご案内します」</pre>
+
+      <div class="subheading">ポイント</div>
+      <ul>
+        <li>1回の電話で押しすぎない。「覚えてもらう」ことが目的</li>
+        <li>担当者名を聞いて記録し、次回の送付時に「◯◯さん宛」で送ると反応が変わる</li>
+        <li>地方紙は「県内発・子育て・人手不足」の3キーワードが揃うと記事化率が上がる。電話のときもこの3点を伝える</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. 想定Q&A -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">5</div>
+      <h2>想定Q&A（取材対応）</h2>
+    </div>
+    <div class="sec-body">
+      <p>インタビューが入った際の回答例です。</p>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr>
+            <th>質問</th>
+            <th>回答例</th>
+          </tr>
+          <tr>
+            <td>なぜ作ったのですか</td>
+            <td>「実際に産後ケア施設で働くなかで、『スタッフをもっと楽にしたい』と開発を始めました。作っていくうちに、ママが施設を見つける仕組み自体が整っていないことに気づき、今はそこの改善を目指しています」</td>
+          </tr>
+          <tr>
+            <td>どういう課題を<br />解決しますか</td>
+            <td>「施設側は電話予約・紙の台帳・Excelと業務が分散し、ママ側は施設ごとに問い合わせ方法が違って空き状況が見えません。予約・連絡・記録・決済を一つのシステムにまとめることで、双方の手間を減らします」</td>
+          </tr>
+          <tr>
+            <td>料金は</td>
+            <td>「基本プランは月額6,000円（税別）。LINE通知やスタッフノートなど必要な機能だけ選べるオプション制で、初期費用は無料、2ヶ月間の無料トライアルがあります」</td>
+          </tr>
+          <tr>
+            <td>最終目標は</td>
+            <td>「産後ケアの『ホットペッパー』です。飲食店を探すように産後ケアを探せる社会を目指しています」</td>
+          </tr>
+          <tr>
+            <td>導入はどう進めるのか</td>
+            <td>「オンラインでの初期設定サポートをご用意しています。まず無料トライアルで2ヶ月お試しいただくのがおすすめです」</td>
+          </tr>
+        </table>
+      </div>
+
+      <div class="subheading">取材時の注意</div>
+      <ul>
+        <li>実績・数字は「想定」かどうかを明確に（未導入の数字は言わない）</li>
+        <li>導入施設数を聞かれたら「公表を控えています」ではなく「現在導入を進めている段階です」と答える</li>
+        <li>施設名を出す場合、その施設の了承を得てから</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. 配信前チェックリスト -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">6</div>
+      <h2>配信前チェックリスト</h2>
+    </div>
+    <div class="sec-body">
+      <ul class="checklist">
+        <li>送付先リストの連絡先を各社サイトで最終確認（2026年8月時点の情報）</li>
+        <li>リリースPDF化（またはFAX用の2枚構成を用意）</li>
+        <li>画像素材の準備（画面スクリーンショット 2〜3枚。docs/proposal/img/ から流用可）</li>
+        <li>件名・本文の「メディア別差し替え1文」を適用</li>
+        <li>送付（火〜木曜の午前中）＋ 送付管理表（いつ・どこに・送ったか）を作成</li>
+        <li>1週間後にフォローアップ電話</li>
+        <li>取材対応は想定Q&Aを確認して臨む</li>
+        <li>反応記録（取材・問い合わせ）を集計し、次回リリースの改善に活かす</li>
+      </ul>
+    </div>
+  </section>
+
+  <nav class="page-nav">
+    <a href="/press-release">リリース本文</a>
+    <a href="/press-media-list">配信先リスト</a>
+    <a href="/">ポータル</a>
+  </nav>
+
+  <div class="footer">
+    mamacare Press Kit 2026.08.03 — Powered by Scratch Pages
+  </div>
+
+</div>
+
+</body>
+</html>

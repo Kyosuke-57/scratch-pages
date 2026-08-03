@@ -220,6 +220,24 @@
     border-bottom: none;
   }
 
+  /* 配信キットリンク */
+  .kit-links { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .kit-link {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--ink-2);
+    transition: all 0.15s;
+  }
+  .kit-link:hover { background: var(--paper-2); border-color: var(--coral); }
+  .kit-icon { font-size: 24px; flex-shrink: 0; }
+  .kit-body { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .kit-body strong { font-size: 14px; color: var(--ink); }
+  .kit-desc { font-size: 12px; color: var(--ink-soft); }
+  .kit-arrow { color: var(--coral); font-size: 18px; }
+
   /* フッター */
   .footer {
     text-align: center;
@@ -379,6 +397,35 @@
     <div class="sec-body">
       <p>mamacare サポート窓口<br />メール: <strong>support@mamacare.jp</strong></p>
       <div class="note">サービス画面のスクリーンショット・画像素材をご入用の場合は、上記サポート窓口までご相談ください。機能の詳細・料金体系については https://mamacare.jp もあわせてご参照ください。</div>
+    </div>
+  </section>
+
+  <!-- 配信キット -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">9</div>
+      <h2>配信キット：次のステップ</h2>
+    </div>
+    <div class="sec-body">
+      <p>このリリースを沖縄県内メディアに送付するための資料一式です。</p>
+      <div class="kit-links">
+        <a class="kit-link" href="/press-media-list">
+          <span class="kit-icon">📋</span>
+          <span class="kit-body">
+            <strong>配信先リスト（沖縄県メディア）</strong>
+            <span class="kit-desc">窓口・電話/FAX・送付方法・優先度を一覧化</span>
+          </span>
+          <span class="kit-arrow">→</span>
+        </a>
+        <a class="kit-link" href="/press-send-guide">
+          <span class="kit-icon">✉️</span>
+          <span class="kit-body">
+            <strong>送付ガイド・メール文面</strong>
+            <span class="kit-desc">コピペで使えるメール雛形・フォローアップ・想定Q&amp;A</span>
+          </span>
+          <span class="kit-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 

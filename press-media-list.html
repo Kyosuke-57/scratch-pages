@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>配信先リスト（沖縄県メディア） — mamacare プレスキット — scratch pages</title>
+<meta name="description" content="mamacare プレスリリース配信先の沖縄県メディア一覧。優先度A（琉球新報・沖縄タイムス・テレビ4局）、優先度B（ラジオ4局）、優先度C（全国紙・経済系）、無料の公的PRルートまでを網羅。" />
+<style>
+  :root {
+    --ink: #0E1B2E;
+    --ink-2: #1A2D4A;
+    --ink-3: #3A4A66;
+    --ink-soft: #6B7A92;
+    --paper: #FBFAF6;
+    --paper-2: #F2EEE6;
+    --line: rgba(14, 27, 46, 0.08);
+    --coral: #E76F51;
+    --coral-soft: #F4A38F;
+    --coral-bg: #FCEEE7;
+    --teal: #2A9D8F;
+    --teal-bg: #E5F2EF;
+    --gold: #D4A24C;
+    --shadow: 0 8px 24px rgba(14, 27, 46, 0.06);
+    --shadow-lg: 0 20px 60px rgba(14, 27, 46, 0.12);
+    --r: 20px;
+    --r-lg: 28px;
+    --container: 780px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* ページヘッダー */
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--line);
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+  }
+  .page-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .page-header p.sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .page-header .release-meta {
+    margin-top: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .page-header .release-meta .meta-chip {
+    background: var(--paper-2);
+    color: var(--ink-3);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* リードボックス（おすすめルート） */
+  .lead-box {
+    margin-bottom: 24px;
+    background: var(--teal-bg);
+    border-radius: var(--r);
+    padding: 24px 28px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.9;
+  }
+  .lead-box strong { color: var(--teal); }
+  .lead-box .lead-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--teal);
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .lead-box .lead-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 10px;
+    margin-top: 4px;
+  }
+  .lead-box .lead-flow .flow-step {
+    background: #fff;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 13px;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+  .lead-box .lead-flow .flow-arrow {
+    color: var(--teal);
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  /* ノート / 警告 */
+  .note {
+    background: #FFF8EE;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin: 0 0 32px;
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+  .note strong { color: #B8860B; }
+
+  /* セクションカード */
+  .section-card {
+    margin-bottom: 32px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .section-card .sec-header {
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-card .sec-header .sec-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-card .sec-header .sec-num.b { background: var(--teal); }
+  .section-card .sec-header .sec-num.c { background: var(--gold); }
+  .section-card .sec-header .sec-num.extra { background: var(--ink-soft); }
+  .section-card .sec-header .sec-num.rule { background: var(--ink-3); }
+  .section-card .sec-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .section-card .sec-body {
+    padding: 20px 28px 24px;
+  }
+
+  /* 本文 */
+  .sec-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .sec-body p:last-child { margin-bottom: 0; }
+  .sec-body strong { color: var(--ink); }
+
+  /* メディア個別タイトル */
+  .media-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 24px 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px dashed var(--line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .media-title:first-child { margin-top: 0; }
+  .media-title .priority-chip {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+  }
+  .priority-chip.a { background: var(--coral-bg); color: var(--coral); }
+  .priority-chip.b { background: var(--teal-bg); color: var(--teal); }
+  .priority-chip.c { background: #FFF8EE; color: var(--gold); }
+  .priority-chip.extra { background: var(--paper-2); color: var(--ink-soft); }
+
+  .media-subtitle {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+
+  .media-note {
+    font-size: 12.5px;
+    color: var(--ink-3);
+    margin: 8px 0 0;
+    line-height: 1.7;
+    padding-left: 12px;
+    border-left: 2px solid var(--coral-soft);
+  }
+  .media-note strong { color: var(--ink-2); }
+
+  /* テーブル */
+  .info-table-wrap {
+    overflow-x: auto;
+    margin: 10px 0 16px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .info-table th, .info-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .info-table th {
+    background: var(--paper-2);
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 12px;
+    white-space: nowrap;
+    width: 140px;
+  }
+  .info-table tr:last-child td, .info-table tr:last-child th {
+    border-bottom: none;
+  }
+  .info-table a {
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--teal);
+  }
+  .info-table a:hover { color: var(--coral); border-bottom-color: var(--coral); }
+
+  /* 番号付きリスト（送付ルール） */
+  .rule-list {
+    counter-reset: rule;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .rule-list li {
+    counter-increment: rule;
+    position: relative;
+    padding: 12px 0 12px 42px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    border-bottom: 1px solid var(--line);
+  }
+  .rule-list li:last-child { border-bottom: none; }
+  .rule-list li::before {
+    content: counter(rule);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--paper-2);
+    color: var(--ink-3);
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .rule-list li strong { color: var(--ink); }
+
+  /* 関連ページリンク */
+  .link-section {
+    margin-top: 48px;
+    padding: 28px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+  }
+  .link-section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .link-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .link-grid a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--ink-2);
+    transition: background 0.15s;
+  }
+  .link-grid a:hover { background: var(--paper-2); }
+  .link-grid a .link-label { font-weight: 500; flex: 1; }
+  .link-grid a .link-url { font-size: 11px; color: var(--ink-soft); }
+  .link-grid a .link-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .link-icon.coral-bg { background: var(--coral-bg); }
+  .link-icon.teal-bg { background: var(--teal-bg); }
+  .link-icon.gold-bg { background: #FFF8EE; }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    padding: 40px 0 16px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="page-header">
+    <span class="badge">PRESS KIT / 配信先リスト</span>
+    <h1>mamacare プレスリリース<br />配信先リスト（沖縄県メディア）</h1>
+    <p class="sub">対象リリース：産後ケア施設向けクラウド「mamacare」沖縄県内施設への展開開始</p>
+    <div class="release-meta">
+      <span class="meta-chip">配信日: 2026年8月3日</span>
+      <span class="meta-chip">更新日: 2026年8月3日</span>
+      <span class="meta-chip">推奨: 火〜木曜 午前中</span>
+    </div>
+  </header>
+
+  <!-- おすすめルート -->
+  <div class="lead-box">
+    <div class="lead-title">おすすめ配信ルート</div>
+    <div class="lead-flow">
+      <span class="flow-step">優先度Aに FAX + メール併用</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">1週間後に電話フォロー</span>
+      <span class="flow-arrow">→</span>
+      <span class="flow-step">琉球新報プログラム要確認</span>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--ink-3);">地方紙は FAX が最も確実。テレビは報道 FFA番号がない場合、代表番号から報道部取次を依頼。ラジオは番組宛メール/フォームが最速で、企画提案を添えると食いつきが良い。</p>
+  </div>
+
+  <!-- 警告ノート -->
+  <div class="note">
+    <strong>⚠️ 送付前の確認事項：</strong>連絡先は2026年8月時点の公開情報（沖縄県政記者クラブ加盟社名簿・各社公式サイト）に基づいています。送付前に各社のウェブサイトで最新の窓口を必ず確認してください。
+  </div>
+
+  <!-- ========================================= -->
+  <!-- 優先度A：県内2大新聞 -->
+  <!-- ========================================= -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">A</div>
+      <h2>優先度A：県内2大新聞（最重要）</h2>
+    </div>
+    <div class="sec-body">
+
+      <!-- 1. 琉球新報 -->
+      <h3 class="media-title">
+        <span class="priority-chip a">A</span>
+        1. 琉球新報
+        <span class="media-subtitle">創刊1893年、県内最大紙</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>住所</th><td>〒900-8525 那覇市泉崎1-10-3</td></tr>
+          <tr><th>代表</th><td>098-865-5111</td></tr>
+          <tr><th>経済・政治面（編集局）</th><td>098-865-5155 ／ FAX 098-867-5607</td></tr>
+          <tr><th>社会面</th><td>098-865-5158</td></tr>
+          <tr><th>本社FAX</th><td>098-861-0100</td></tr>
+          <tr><th>メール</th><td><a href="mailto:chihou@ryukyushimpo.co.jp">chihou@ryukyushimpo.co.jp</a>（地方部）</td></tr>
+          <tr><th>送付方法</th><td><strong>FAX + メールの併用</strong>（FAXが確実）</td></tr>
+          <tr><th>補足</th><td>「情報をお寄せください」フォームあり（ryukyushimpo.jp/inquiry-form/info.html）。<strong>PR TIMESとの提携「琉球新報プログラム」あり</strong>（下記・番外参照）</td></tr>
+        </table>
+      </div>
+
+      <!-- 2. 沖縄タイムス -->
+      <h3 class="media-title">
+        <span class="priority-chip a">A</span>
+        2. 沖縄タイムス
+        <span class="media-subtitle">県内2大紙</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>住所</th><td>〒900-8555 那覇市久茂地2-2-2</td></tr>
+          <tr><th>代表</th><td>098-860-3000</td></tr>
+          <tr><th>政治・経済面（政経部）</th><td>098-860-3551 ／ FAX 098-860-3482</td></tr>
+          <tr><th>社会面（社会部）</th><td>098-860-3552 ／ FAX 098-860-3483</td></tr>
+          <tr><th>地域面・報道部メール</th><td>
+            那覇: <a href="mailto:shakai@okinawatimes.co.jp">shakai@okinawatimes.co.jp</a><br />
+            南部: <a href="mailto:nanbu@okinawatimes.co.jp">nanbu@okinawatimes.co.jp</a><br />
+            中部: <a href="mailto:tyubu@okinawatimes.co.jp">tyubu@okinawatimes.co.jp</a><br />
+            北部: <a href="mailto:hokubu@okinawatimes.co.jp">hokubu@okinawatimes.co.jp</a><br />
+            宮古: <a href="mailto:miyako@okinawatimes.co.jp">miyako@okinawatimes.co.jp</a><br />
+            八重山: <a href="mailto:yaeyama@okinawatimes.co.jp">yaeyama@okinawatimes.co.jp</a>
+          </td></tr>
+          <tr><th>送付方法</th><td><strong>FAX + メールの併用</strong></td></tr>
+          <tr><th>補足</th><td>プレスリリース配信サービス「<strong>おきなわトレンド</strong>」あり（下記・番外参照）</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- 優先度A：テレビ4局 -->
+  <!-- ========================================= -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">A</div>
+      <h2>優先度A：テレビ4局（映像取材狙い）</h2>
+    </div>
+    <div class="sec-body">
+
+      <!-- 3. RBC -->
+      <h3 class="media-title">
+        <span class="priority-chip a">A</span>
+        3. RBC 琉球放送
+        <span class="media-subtitle">TBS系列</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>住所</th><td>那覇市久茂地2-3-1</td></tr>
+          <tr><th>代表</th><td>098-867-2151（平日9:00〜18:00）</td></tr>
+          <tr><th>報道</th><td>098-860-2063 ／ FAX 098-862-5047</td></tr>
+          <tr><th>送付方法</th><td>FAX + 報道フォーム（rbc.co.jp/corp/info/contact_list/）</td></tr>
+        </table>
+      </div>
+      <p class="media-note">報道番組への取材依頼・素材提供は報道FAXが正式ルート。</p>
+
+      <!-- 4. QAB -->
+      <h3 class="media-title">
+        <span class="priority-chip a">A</span>
+        4. QAB 琉球朝日放送
+        <span class="media-subtitle">テレビ朝日系列</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>住所</th><td>那覇市久茂地2-3-1</td></tr>
+          <tr><th>代表</th><td>098-860-1199（月〜金 9:00〜18:00）</td></tr>
+          <tr><th>送付方法</th><td>お問い合わせフォーム（qab.co.jp/about/contact/）</td></tr>
+        </table>
+      </div>
+      <p class="media-note">報道FAX番号は非公開。フォーム送付後、代表番号で報道部につないでもらう。</p>
+
+      <!-- 5. OTV -->
+      <h3 class="media-title">
+        <span class="priority-chip a">A</span>
+        5. OTV 沖縄テレビ放送
+        <span class="media-subtitle">フジテレビ系列</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>住所</th><td>那覇市久茂地1-2-20</td></tr>
+          <tr><th>代表</th><td>098-863-2111</td></tr>
+          <tr><th>報道</th><td>098-869-4422 ／ FAX 098-860-2646</td></tr>
+          <tr><th>送付方法</th><td>FAX + お問い合わせフォーム（otv.co.jp/mail/）</td></tr>
+        </table>
+      </div>
+
+      <!-- 6. NHK -->
+      <h3 class="media-title">
+        <span class="priority-chip a">A</span>
+        6. NHK沖縄放送局
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>住所</th><td>那覇市おもろまち2-6-21</td></tr>
+          <tr><th>代表</th><td>098-865-2222</td></tr>
+          <tr><th>報道</th><td>098-865-3641 ／ FAX 098-865-3615</td></tr>
+          <tr><th>送付方法</th><td>FAX</td></tr>
+        </table>
+      </div>
+      <p class="media-note">地域の子育て・福祉トピックは「おきなわHOTeye」等の番組で取り上げられることが多い。</p>
+
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- 優先度B：ラジオ -->
+  <!-- ========================================= -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num b">B</div>
+      <h2>優先度B：ラジオ（ゲスト・情報コーナー狙い）</h2>
+    </div>
+    <div class="sec-body">
+
+      <!-- 7. ROK -->
+      <h3 class="media-title">
+        <span class="priority-chip b">B</span>
+        7. ラジオ沖縄 ROK
+        <span class="media-subtitle">AM864kHz / FM93.1MHz</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>住所</th><td>〒900-8604 那覇市西1-4-8</td></tr>
+          <tr><th>代表</th><td>098-869-2211 ／ FAX 098-869-2210</td></tr>
+          <tr><th>番組メッセージ</th><td>各番組のフォーム（rokinawa.co.jp）／ Twitter: <a href="https://twitter.com/RadioOkinawa864">@RadioOkinawa864</a></td></tr>
+        </table>
+      </div>
+      <p class="media-note">朝の情報番組「SPLASH!!」などは県内ニュース・ゲスト枠あり。福祉・子育て番組「ハートフル沖縄」も好相性。</p>
+
+      <!-- 8. FM沖縄 -->
+      <h3 class="media-title">
+        <span class="priority-chip b">B</span>
+        8. FM沖縄
+        <span class="media-subtitle">87.3MHz</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>問い合わせ</th><td>番組メッセージフォーム（fmokinawa.co.jp/message_form/）</td></tr>
+        </table>
+      </div>
+      <p class="media-note">番組宛のメッセージフォームが窓口。各番組のゲスト枠に直接アプローチ。</p>
+
+      <!-- 9. FMよみたん -->
+      <h3 class="media-title">
+        <span class="priority-chip b">B</span>
+        9. FMよみたん
+        <span class="media-subtitle">78.6MHz・読谷村</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>TEL</th><td>098-958-7860</td></tr>
+          <tr><th>FAX</th><td>098-958-7861</td></tr>
+          <tr><th>メール</th><td><a href="mailto:fm786@fmyomitan.co.jp">fm786@fmyomitan.co.jp</a></td></tr>
+        </table>
+      </div>
+      <p class="media-note">「取材や広告のお申し込み」歓迎と明記。コミュニティFMは地元ネタの食いつきが良い。</p>
+
+      <!-- 10. FMレキオ -->
+      <h3 class="media-title">
+        <span class="priority-chip b">B</span>
+        10. FMレキオ
+        <span class="media-subtitle">80.6MHz・那覇市</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>問い合わせ</th><td>フォーム（fmlequio.com/contact-us/）</td></tr>
+        </table>
+      </div>
+      <p class="media-note">種類選択に「出張放送」「リスナープレゼント」あり。企画提案（無料トライアル案内など）と相性◎。</p>
+
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- 優先度C：全国紙・経済メディア -->
+  <!-- ========================================= -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num c">C</div>
+      <h2>優先度C：全国紙沖縄支局・経済メディア</h2>
+    </div>
+    <div class="sec-body">
+
+      <!-- 11. 全国紙那覇支局 -->
+      <h3 class="media-title">
+        <span class="priority-chip c">C</span>
+        11. 全国紙那覇支局
+        <span class="media-subtitle">県内ニュースは全国配信の可能性あり</span>
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr>
+            <th style="width:auto;">媒体</th>
+            <th style="width:auto;">電話</th>
+            <th style="width:auto;">FAX</th>
+          </tr>
+          <tr>
+            <td>朝日新聞 那覇総局</td>
+            <td>098-867-1972</td>
+            <td>098-863-8545</td>
+          </tr>
+          <tr>
+            <td>毎日新聞 那覇支局</td>
+            <td>098-867-2395</td>
+            <td>098-866-1213</td>
+          </tr>
+          <tr>
+            <td>読売新聞 那覇支局</td>
+            <td>098-867-2393</td>
+            <td>098-860-2724</td>
+          </tr>
+          <tr>
+            <td>日本経済新聞 那覇支局</td>
+            <td>098-867-1503</td>
+            <td>098-862-0496</td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- 12. 経済・ビジネス系 -->
+      <h3 class="media-title">
+        <span class="priority-chip c">C</span>
+        12. 経済・ビジネス系
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr>
+            <th style="width:auto;">媒体</th>
+            <th style="width:auto;">窓口</th>
+            <th style="width:auto;">補足</th>
+          </tr>
+          <tr>
+            <td>琉球新報ビジネス</td>
+            <td>琉球新報社経由</td>
+            <td>経済部扱い</td>
+          </tr>
+          <tr>
+            <td>沖縄タイムス おきなわトレンド</td>
+            <td><a href="mailto:trend@okinawatimes.co.jp">trend@okinawatimes.co.jp</a> ／ 098-860-3582</td>
+            <td>タイムス社のニュースリリース配信サービス（有料・応相談）。紙面・サイトへのPR掲載</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- 番外 -->
+  <!-- ========================================= -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num extra">補</div>
+      <h2>番外：無料でできる「公的なPRルート」</h2>
+    </div>
+    <div class="sec-body">
+
+      <!-- A. 琉球新報プログラム -->
+      <h3 class="media-title">
+        <span class="priority-chip extra">A</span>
+        琉球新報プログラム（PR TIMES 無料配信）
+        <span class="media-subtitle">⭐ 要検討</span>
+      </h3>
+      <p>琉球新報社とPR TIMESの業務提携により、<strong>琉球新報社が紹介する沖縄県内事業者は6ヶ月間で3件までPR TIMESを無料配信</strong>できます（全国約1万媒体に配信され、琉球新報DIGITALにも掲載）。</p>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>問い合わせ先</th><td>琉球新報社（098-865-5111）経由で紹介を受け、PR TIMESに登録</td></tr>
+          <tr><th>対象</th><td>個人事業主でも対象になり得るか要確認（「一定条件」あり）</td></tr>
+          <tr><th>参考URL</th><td><a href="https://ryukyushimpo.jp/prtimes/entry-2342933.html">ryukyushimpo.jp/prtimes/entry-2342933.html</a></td></tr>
+        </table>
+      </div>
+
+      <!-- B. 行政ルート -->
+      <h3 class="media-title">
+        <span class="priority-chip extra">B</span>
+        沖縄県・市町村の広報（行政ルート）
+      </h3>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>沖縄県 知事公室 広報課</th><td>098-866-2020 ／ FAX 098-866-2467。県民向け情報の発信ルート</td></tr>
+          <tr><th>沖縄県 こども生活福祉部</th><td>産後ケア事業の主管課。施設への周知・県の広報媒体での紹介につながる可能性</td></tr>
+          <tr><th>各市町村 子育て支援課</th><td>産後ケア事業の委託元。導入施設の紹介や広報紙での掲載依頼</td></tr>
+        </table>
+      </div>
+
+      <!-- C. 県政記者クラブ -->
+      <h3 class="media-title">
+        <span class="priority-chip extra">C</span>
+        県政記者クラブ加盟社名簿（最新連絡先の確認元）
+      </h3>
+      <p>沖縄県公式サイトに加盟社の電話・FAX一覧があります（本リストの元データ）。</p>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>参照URL</th><td><a href="https://www.pref.okinawa.jp/kensei/kochokoho/1014703/1014704.html">www.pref.okinawa.jp/kensei/kochokoho/1014703/1014704.html</a></td></tr>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- 送付ルール -->
+  <!-- ========================================= -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num rule">規</div>
+      <h2>送付ルール（一覧）</h2>
+    </div>
+    <div class="sec-body">
+      <ol class="rule-list">
+        <li><strong>優先度A（新聞2紙）にはFAX + メールの両方</strong>を送る（地方紙はFAXが最も確実）</li>
+        <li>テレビはFAX（またはフォーム）+ <strong>報道部への電話確認</strong></li>
+        <li>ラジオは<strong>番組宛メール/フォームが最速</strong>。企画提案を添えると食いつきが良い</li>
+        <li>送付は<strong>火〜木曜の午前中</strong>。月曜・金曜は避ける</li>
+        <li>送付後<strong>1週間以内にフォローアップ電話</strong>（文面は「送付ガイド」参照）</li>
+        <li>取材が入ったら<strong>想定Q&A</strong>（送付ガイド内）を事前に読み込んでおく</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ========================================= -->
+  <!-- 関連ページ -->
+  <!-- ========================================= -->
+  <div class="link-section">
+    <h2>関連ページ</h2>
+    <div class="link-grid">
+      <a href="/press-release">
+        <span class="link-icon coral-bg">📰</span>
+        <span class="link-label">リリース本文</span>
+        <span class="link-url">/press-release</span>
+      </a>
+      <a href="/press-send-guide">
+        <span class="link-icon teal-bg">✉️</span>
+        <span class="link-label">送付ガイド・メール文面</span>
+        <span class="link-url">/press-send-guide</span>
+      </a>
+      <a href="/">
+        <span class="link-icon gold-bg">🏠</span>
+        <span class="link-label">ポータル</span>
+        <span class="link-url">/</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    mamacare Press Kit 2026.08.03 — 配信先リスト（沖縄県メディア） — Powered by Scratch Pages
+  </div>
+
+</div>
+
+</body>
+</html>
