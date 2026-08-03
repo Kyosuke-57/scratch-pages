@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>沖縄県 産後ケア施設一覧（69施設） — scratch pages</title>
+<meta name="description" content="沖縄県内の産後ケア施設をヌケモレなく調査した一覧。県の委託契約リスト+全41市町村のHPから収集。施設ごとの対応市町村・ケア種類（宿泊・通所・訪問）付き。" />
+<style>
+  :root {
+    --ink: #0E1B2E;
+    --ink-2: #1A2D4A;
+    --ink-3: #3A4A66;
+    --ink-soft: #6B7A92;
+    --paper: #FBFAF6;
+    --paper-2: #F2EEE6;
+    --line: rgba(14, 27, 46, 0.08);
+    --coral: #E76F51;
+    --coral-soft: #F4A38F;
+    --coral-bg: #FCEEE7;
+    --teal: #2A9D8F;
+    --teal-bg: #E5F2EF;
+    --gold: #D4A24C;
+    --shadow: 0 8px 24px rgba(14, 27, 46, 0.06);
+    --shadow-lg: 0 20px 60px rgba(14, 27, 46, 0.12);
+    --r: 20px;
+    --r-lg: 28px;
+    --container: 860px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .container { max-width: var(--container); margin: 0 auto; padding: 32px 20px 100px; }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--line);
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .page-header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; margin-bottom: 8px; }
+  .page-header p.sub { color: var(--ink-soft); font-size: 14px; }
+
+  .overview {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    padding: 28px;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow);
+  }
+  .overview h2 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
+  .overview p { font-size: 14px; color: var(--ink-3); margin-bottom: 10px; }
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+    margin: 16px 0 20px;
+  }
+  @media (max-width: 600px) { .stats { grid-template-columns: 1fr 1fr; } }
+  .stat {
+    background: var(--paper-2); border-radius: 14px; padding: 14px 16px; text-align: center;
+  }
+  .stat .v { font-size: 24px; font-weight: 800; color: var(--ink); }
+  .stat .l { font-size: 11px; color: var(--ink-soft); margin-top: 2px; }
+  .notice {
+    background: var(--coral-bg); border-radius: 14px; padding: 14px 18px;
+    font-size: 13px; color: var(--ink-2);
+  }
+  .notice strong { color: var(--coral); }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; align-items: center; }
+  .legend .item { font-size: 12px; color: var(--ink-3); display: flex; align-items: center; gap: 6px; }
+  .care-badge {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 3px 10px; border-radius: 999px;
+    background: var(--teal-bg); color: var(--teal);
+  }
+  .care-badge.unknown { background: var(--paper-2); color: var(--ink-soft); }
+
+  .area-block { margin-bottom: 48px; }
+  .area-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid var(--line);
+  }
+  .area-icon { font-size: 30px; }
+  .area-head h2 { font-size: 20px; font-weight: 700; }
+  .area-head p { font-size: 12px; color: var(--ink-soft); }
+
+  .facility-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .facility-card {
+    background: white; border: 1px solid var(--line); border-radius: var(--r);
+    padding: 18px 20px; transition: all 0.2s;
+  }
+  .facility-card:hover { border-color: var(--coral); box-shadow: var(--shadow); transform: translateY(-2px); }
+  .facility-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+  .facility-top h3 { font-size: 15px; font-weight: 700; line-height: 1.4; }
+  .src-new {
+    flex-shrink: 0; font-size: 10px; font-weight: 700; color: var(--coral);
+    background: var(--coral-bg); padding: 2px 8px; border-radius: 999px; white-space: nowrap;
+  }
+  .facility-loc { font-size: 12px; color: var(--ink-soft); margin: 6px 0 10px; }
+  .care-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 10px; }
+  .muni-details { font-size: 12px; }
+  .muni-details summary { cursor: pointer; color: var(--teal); font-weight: 600; user-select: none; }
+  .muni-details summary:hover { opacity: 0.7; }
+  .muni-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 8px; }
+  .muni-tag {
+    font-size: 10px; padding: 2px 8px; border-radius: 999px;
+    background: var(--paper-2); color: var(--ink-3);
+  }
+
+  .source-note {
+    background: var(--teal-bg); border-radius: var(--r); padding: 20px 24px;
+    font-size: 13px; color: var(--ink-2); margin-top: 16px;
+  }
+  .source-note h3 { font-size: 14px; font-weight: 700; margin-bottom: 8px; color: var(--teal); }
+  .source-note ul { padding-left: 18px; }
+  .source-note li { margin-bottom: 4px; }
+
+  footer { background: #050d1a; color: rgba(255,255,255,0.5); padding: 32px 0; text-align: center; font-size: 12px; }
+  footer a { color: var(--coral-soft); text-decoration: none; }
+  @media (max-width: 720px) { .page-header h1 { font-size: 23px; } }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="page-header">
+    <span class="badge">📋 調査結果 · 2026.08.03</span>
+    <h1>沖縄県 産後ケア施設一覧</h1>
+    <p class="sub">県の委託契約リスト + 全41市町村のHPから収集 · 全69施設</p>
+  </header>
+
+  <section class="overview">
+    <h2>この一覧について</h2>
+    <p>沖縄県の「令和8年度 産後ケア事業実施医療機関リスト」と、県内41市町村すべての公式ホームページ・配布資料を照合して作成した、産後ケア施設の完全版一覧です。</p>
+    <div class="stats">
+      <div class="stat"><div class="v">69</div><div class="l">施設数</div></div>
+      <div class="stat"><div class="v">41</div><div class="l">調査市町村</div></div>
+      <div class="stat"><div class="v">3</div><div class="l">県リストにない新規発見</div></div>
+    </div>
+    <p><strong>「対応市町村」</strong>とは、その施設を利用できる（委託契約のある）市町村のこと。県リストと市町村HPの両方を足し合わせてあるので、市町村ごとの最新の利用可否がわかります。</p>
+    <div class="notice">
+      <strong>⚠️ 注意</strong>：住所・電話番号・利用条件は収集済みPDFに記載がありますが、このページでは未掲載です（次のステップで追加予定）。最新の情報は各市町村の窓口へご確認ください。
+    </div>
+  </section>
+
+  <div class="legend">
+    <span class="item">🏷️ ケア種類：</span>
+    <span class="care-badge">宿泊</span>
+    <span class="care-badge">通所</span>
+    <span class="care-badge">訪問</span>
+    <span class="care-badge unknown">未確認</span>
+    <span class="item" style="margin-left:12px">🏷️ <strong style="color:var(--coral)">HPのみ掲載</strong> = 県リストに載っていない新規施設</span>
+  </div>
+
+  
+    <div class="area-block" id="area-南部">
+      <div class="area-head">
+        <span class="area-icon">🌺</span>
+        <div>
+          <h2>南部エリア</h2>
+          <p>那覇市・浦添市・宜野湾市・豊見城市・糸満市・南城市 ほか · 40施設</p>
+        </div>
+      </div>
+      <div class="facility-grid">
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>Anmmer</h3>
+            
+          </div>
+          <div class="facility-loc">📍 豊見城市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">南風原町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">渡嘉敷村</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>Naoko女性クリニック</h3>
+            
+          </div>
+          <div class="facility-loc">📍 浦添市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">浦添市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>birth</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">八重瀬町</span><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">渡嘉敷村</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>cotonowa（コトノワ）</h3>
+            
+          </div>
+          <div class="facility-loc">📍 北中城村</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">訪問</span><span class="care-badge">通所</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">中城村</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">沖縄市</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>zeroplace</h3>
+            
+          </div>
+          <div class="facility-loc">📍 浦添市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（12）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">与那原町</span><span class="muni-tag">中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">南風原町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">浦添市</span><span class="muni-tag">渡嘉敷村</span><span class="muni-tag">糸満市</span><span class="muni-tag">西原町</span><span class="muni-tag">読谷村</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>うえむら病院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 中城村</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（16）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">与那原町</span><span class="muni-tag">中城村</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">名護市</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">沖縄市</span><span class="muni-tag">浦添市</span><span class="muni-tag">西原町</span><span class="muni-tag">読谷村</span><span class="muni-tag">豊見城市</span><span class="muni-tag">那覇市</span><span class="muni-tag">金武町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>おたま助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>かみや母と子のクリニック</h3>
+            
+          </div>
+          <div class="facility-loc">📍 糸満市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（9）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">八重瀬町</span><span class="muni-tag">北大東村</span><span class="muni-tag">南城市</span><span class="muni-tag">南大東村</span><span class="muni-tag">南風原町</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>こずえ助産院</h3>
+            <span class="src-new">HPのみ掲載</span>
+          </div>
+          <div class="facility-loc">📍 豊見城市</div>
+          <div class="care-row"><span class="care-badge">訪問</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（3）</summary>
+            <div class="muni-tags"><span class="muni-tag">南城市</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>ことのは助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宜野湾市</div>
+          <div class="care-row"><span class="care-badge">訪問</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">名護市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>たごもり助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 豊見城市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>だんだん助産院～OKINAWA～</h3>
+            
+          </div>
+          <div class="facility-loc">📍 豊見城市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">南風原町</span><span class="muni-tag">多良間村</span><span class="muni-tag">宮古島市</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>つどいの家LanaPono</h3>
+            
+          </div>
+          <div class="facility-loc">📍 北中城村</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">沖縄市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>つむぐ子どもケア</h3>
+            <span class="src-new">HPのみ掲載</span>
+          </div>
+          <div class="facility-loc">📍 豊見城市</div>
+          <div class="care-row"><span class="care-badge">宿泊</span><span class="care-badge">訪問</span><span class="care-badge">通所</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>ばぁびぃ助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 浦添市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">宜野湾市</span><span class="muni-tag">浦添市</span><span class="muni-tag">西原町</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>ゆいは助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 南風原町</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（2）</summary>
+            <div class="muni-tags"><span class="muni-tag">南風原町</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>イジュの花助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宜野湾市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（7）</summary>
+            <div class="muni-tags"><span class="muni-tag">中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">浦添市</span><span class="muni-tag">西原町</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>エナ・助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 南風原町</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（6）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">八重瀬町</span><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>クバの葉助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宜野湾市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">北中城村</span><span class="muni-tag">名護市</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">本部町</span><span class="muni-tag">西原町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>コツヨシ小児・母子訪問看護ステーション</h3>
+            
+          </div>
+          <div class="facility-loc">📍 南風原町</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（3）</summary>
+            <div class="muni-tags"><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">糸満市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>バークレーレディースクリニック</h3>
+            
+          </div>
+          <div class="facility-loc">📍 浦添市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">宜野湾市</span><span class="muni-tag">浦添市</span><span class="muni-tag">西原町</span><span class="muni-tag">読谷村</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>ママケアハウスさくら</h3>
+            
+          </div>
+          <div class="facility-loc">📍 与那原町</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（6）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">八重瀬町</span><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院うえださんち</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院ちゅら</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宜野湾市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">浦添市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院ゆくぐくる</h3>
+            
+          </div>
+          <div class="facility-loc">📍 南風原町</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">南風原町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院パピヨン</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宜野湾市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（6）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">中城村</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">西原町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院珊瑚</h3>
+            
+          </div>
+          <div class="facility-loc">📍 糸満市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">八重瀬町</span><span class="muni-tag">南城市</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院＊きらきら</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>南部徳洲会病院（産婦人科）</h3>
+            
+          </div>
+          <div class="facility-loc">📍 八重瀬町</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">通所</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">八重瀬町</span><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">糸満市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>友利産婦人科</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">南風原町</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>合同会社わらいふ</h3>
+            
+          </div>
+          <div class="facility-loc">📍 西原町</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">中城村</span><span class="muni-tag">南風原町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">西原町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>安座間産婦人科</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">南風原町</span><span class="muni-tag">浦添市</span><span class="muni-tag">西原町</span><span class="muni-tag">読谷村</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>新田クリニック</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（2）</summary>
+            <div class="muni-tags"><span class="muni-tag">浦添市</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>母乳育児相談室「春」</h3>
+            
+          </div>
+          <div class="facility-loc">📍 南城市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（3）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>母乳育児相談室・保健相談室Minami</h3>
+            
+          </div>
+          <div class="facility-loc">📍 中城村</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">中城村</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">西原町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>沖縄協同病院（産婦人科）</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span><span class="care-badge">宿泊</span><span class="care-badge">通所</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（3）</summary>
+            <div class="muni-tags"><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>産前産後ハウスいじゅのはな</h3>
+            <span class="src-new">HPのみ掲載</span>
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">訪問</span><span class="care-badge">通所</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（2）</summary>
+            <div class="muni-tags"><span class="muni-tag">豊見城市</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>秋ちゃん助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 豊見城市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（7）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那原町</span><span class="muni-tag">八重瀬町</span><span class="muni-tag">南風原町</span><span class="muni-tag">本部町</span><span class="muni-tag">糸満市</span><span class="muni-tag">西原町</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>糸数病院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 那覇市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（8）</summary>
+            <div class="muni-tags"><span class="muni-tag">八重瀬町</span><span class="muni-tag">北大東村</span><span class="muni-tag">南城市</span><span class="muni-tag">南風原町</span><span class="muni-tag">浦添市</span><span class="muni-tag">糸満市</span><span class="muni-tag">豊見城市</span><span class="muni-tag">那覇市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>訪問看護ステーションeight</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宜野湾市</div>
+          <div class="care-row"><span class="care-badge">訪問</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">伊江村</span></div>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="area-block" id="area-中部">
+      <div class="area-head">
+        <span class="area-icon">🏝️</span>
+        <div>
+          <h2>中部エリア</h2>
+          <p>沖縄市・うるま市・読谷村・北谷町・北中城村 ほか · 18施設</p>
+        </div>
+      </div>
+      <div class="facility-grid">
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>KOKUA</h3>
+            
+          </div>
+          <div class="facility-loc">📍 読谷村</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（2）</summary>
+            <div class="muni-tags"><span class="muni-tag">本部町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>TSUKINO助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 うるま市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（3）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">北谷町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>あかり助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 うるま市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（7）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">宜野座村</span><span class="muni-tag">恩納村</span><span class="muni-tag">沖縄市</span><span class="muni-tag">読谷村</span><span class="muni-tag">金武町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>あゆず＊助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 沖縄市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（4）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">沖縄市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>かふうのいえ</h3>
+            
+          </div>
+          <div class="facility-loc">📍 沖縄市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">沖縄市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>くくる助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 沖縄市</div>
+          <div class="care-row"><span class="care-badge">訪問</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>てのひら助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 読谷村</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（9）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">名護市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">国頭村</span><span class="muni-tag">大宜味村</span><span class="muni-tag">沖縄市</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>てんぷす助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 うるま市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（2）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>とっくりきわた助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 恩納村</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（6）</summary>
+            <div class="muni-tags"><span class="muni-tag">名護市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">宜野座村</span><span class="muni-tag">恩納村</span><span class="muni-tag">本部町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>みねた助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 沖縄市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（10）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">名護市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">宜野座村</span><span class="muni-tag">恩納村</span><span class="muni-tag">沖縄市</span><span class="muni-tag">読谷村</span><span class="muni-tag">金武町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>ゆいクリニック</h3>
+            
+          </div>
+          <div class="facility-loc">📍 沖縄市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（16）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">中城村</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">南城市</span><span class="muni-tag">名護市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">国頭村</span><span class="muni-tag">宜野座村</span><span class="muni-tag">宮古島市</span><span class="muni-tag">恩納村</span><span class="muni-tag">東村</span><span class="muni-tag">沖縄市</span><span class="muni-tag">浦添市</span><span class="muni-tag">西原町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>マヤテラス助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 読谷村</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（8）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">北谷町</span><span class="muni-tag">名護市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">恩納村</span><span class="muni-tag">本部町</span><span class="muni-tag">読谷村</span><span class="muni-tag">金武町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院PIKO</h3>
+            
+          </div>
+          <div class="facility-loc">📍 うるま市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（7）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">沖縄市</span><span class="muni-tag">読谷村</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院ある</h3>
+            
+          </div>
+          <div class="facility-loc">📍 うるま市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>桶谷式結母乳育児相談室</h3>
+            
+          </div>
+          <div class="facility-loc">📍 読谷村</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（2）</summary>
+            <div class="muni-tags"><span class="muni-tag">北谷町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>母子未来センター</h3>
+            
+          </div>
+          <div class="facility-loc">📍 沖縄市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（22）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">今帰仁村</span><span class="muni-tag">伊是名村</span><span class="muni-tag">伊江村</span><span class="muni-tag">八重瀬町</span><span class="muni-tag">北中城村</span><span class="muni-tag">北大東村</span><span class="muni-tag">北谷町</span><span class="muni-tag">南大東村</span><span class="muni-tag">南風原町</span><span class="muni-tag">名護市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">国頭村</span><span class="muni-tag">宜野座村</span><span class="muni-tag">宮古島市</span><span class="muni-tag">恩納村</span><span class="muni-tag">沖縄市</span><span class="muni-tag">浦添市</span><span class="muni-tag">読谷村</span><span class="muni-tag">豊見城市</span><span class="muni-tag">那覇市</span><span class="muni-tag">金武町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>沖縄こころ助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 北谷町</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（11）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">中城村</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">恩納村</span><span class="muni-tag">沖縄市</span><span class="muni-tag">浦添市</span><span class="muni-tag">西原町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>海の音助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 沖縄市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（11）</summary>
+            <div class="muni-tags"><span class="muni-tag">うるま市</span><span class="muni-tag">中城村</span><span class="muni-tag">北中城村</span><span class="muni-tag">北谷町</span><span class="muni-tag">名護市</span><span class="muni-tag">嘉手納町</span><span class="muni-tag">宜野湾市</span><span class="muni-tag">恩納村</span><span class="muni-tag">沖縄市</span><span class="muni-tag">西原町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="area-block" id="area-北部">
+      <div class="area-head">
+        <span class="area-icon">🌲</span>
+        <div>
+          <h2>北部エリア</h2>
+          <p>名護市・本部町・今帰仁村・東村 ほか · 6施設</p>
+        </div>
+      </div>
+      <div class="facility-grid">
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>みちこ女性クリニック</h3>
+            
+          </div>
+          <div class="facility-loc">📍 名護市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（6）</summary>
+            <div class="muni-tags"><span class="muni-tag">今帰仁村</span><span class="muni-tag">名護市</span><span class="muni-tag">国頭村</span><span class="muni-tag">大宜味村</span><span class="muni-tag">本部町</span><span class="muni-tag">東村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>やんばる希望ヶ丘助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 今帰仁村</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（12）</summary>
+            <div class="muni-tags"><span class="muni-tag">今帰仁村</span><span class="muni-tag">伊平屋村</span><span class="muni-tag">伊是名村</span><span class="muni-tag">伊江村</span><span class="muni-tag">名護市</span><span class="muni-tag">国頭村</span><span class="muni-tag">大宜味村</span><span class="muni-tag">宜野座村</span><span class="muni-tag">本部町</span><span class="muni-tag">東村</span><span class="muni-tag">読谷村</span><span class="muni-tag">豊見城市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>七海助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 名護市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（8）</summary>
+            <div class="muni-tags"><span class="muni-tag">今帰仁村</span><span class="muni-tag">名護市</span><span class="muni-tag">国頭村</span><span class="muni-tag">大宜味村</span><span class="muni-tag">恩納村</span><span class="muni-tag">本部町</span><span class="muni-tag">東村</span><span class="muni-tag">金武町</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院BAO</h3>
+            
+          </div>
+          <div class="facility-loc">📍 名護市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（8）</summary>
+            <div class="muni-tags"><span class="muni-tag">今帰仁村</span><span class="muni-tag">北大東村</span><span class="muni-tag">名護市</span><span class="muni-tag">国頭村</span><span class="muni-tag">大宜味村</span><span class="muni-tag">本部町</span><span class="muni-tag">東村</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>助産院エスフール</h3>
+            
+          </div>
+          <div class="facility-loc">📍 名護市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（8）</summary>
+            <div class="muni-tags"><span class="muni-tag">今帰仁村</span><span class="muni-tag">伊江村</span><span class="muni-tag">名護市</span><span class="muni-tag">国頭村</span><span class="muni-tag">大宜味村</span><span class="muni-tag">宜野座村</span><span class="muni-tag">本部町</span><span class="muni-tag">東村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>美ら海ハシイ産婦人科</h3>
+            
+          </div>
+          <div class="facility-loc">📍 名護市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（11）</summary>
+            <div class="muni-tags"><span class="muni-tag">今帰仁村</span><span class="muni-tag">伊平屋村</span><span class="muni-tag">伊江村</span><span class="muni-tag">名護市</span><span class="muni-tag">国頭村</span><span class="muni-tag">大宜味村</span><span class="muni-tag">宜野座村</span><span class="muni-tag">恩納村</span><span class="muni-tag">本部町</span><span class="muni-tag">東村</span><span class="muni-tag">金武町</span></div>
+          </details>
+        </div>
+      </div>
+    </div>
+    <div class="area-block" id="area-離島">
+      <div class="area-head">
+        <span class="area-icon">🛳️</span>
+        <div>
+          <h2>離島エリア</h2>
+          <p>宮古島市・石垣市・久米島町・竹富町 ほか · 5施設</p>
+        </div>
+      </div>
+      <div class="facility-grid">
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>LaLuna助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宮古島市</div>
+          <div class="care-row"><span class="care-badge">デ</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">宮古島市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>hana助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宮古島市</div>
+          <div class="care-row"><span class="care-badge">ア</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">宮古島市</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>おおそこ助産院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 石垣市</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（5）</summary>
+            <div class="muni-tags"><span class="muni-tag">与那国町</span><span class="muni-tag">宮古島市</span><span class="muni-tag">石垣市</span><span class="muni-tag">竹富町</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>奥平産婦人科医院</h3>
+            
+          </div>
+          <div class="facility-loc">📍 宮古島市</div>
+          <div class="care-row"><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（3）</summary>
+            <div class="muni-tags"><span class="muni-tag">多良間村</span><span class="muni-tag">宮古島市</span><span class="muni-tag">読谷村</span></div>
+          </details>
+        </div>
+        <div class="facility-card">
+          <div class="facility-top">
+            <h3>星降る森の助産院にぬふぁぶし</h3>
+            
+          </div>
+          <div class="facility-loc">📍 久米島町</div>
+          <div class="care-row"><span class="care-badge">ア</span><span class="care-badge">デ</span><span class="care-badge">宿</span></div>
+          <details class="muni-details">
+            <summary>対応市町村（1）</summary>
+            <div class="muni-tags"><span class="muni-tag">久米島町</span></div>
+          </details>
+        </div>
+      </div>
+    </div>
+
+  <section class="source-note">
+    <h3>📚 調査メモ（ヌケモレ対策）</h3>
+    <ul>
+      <li>ベース：沖縄県「令和8年度産後ケア事業委託契約施設一覧」PDFを座標解析（68件）</li>
+      <li>全41市町村の産後ケア事業ページ・施設一覧PDFを個別に確認して照合</li>
+      <li>県リストにない新規施設：<strong>こずえ助産院</strong>（豊見城市）・<strong>つむぐ子どもケア</strong>（豊見城市）・<strong>産前産後ハウスいじゅのはな</strong>（那覇市）</li>
+      <li>産後ケア事業を実施していない市町村：粟国村・渡名喜村（座間味村は直営のみ）</li>
+      <li>県リストと市町村HPに差がある場合は、新しい方（市町村HP）を優先して統合</li>
+    </ul>
+  </section>
+</div>
+
+<footer>
+  <p>Scratch Pages · <a href="/">一覧へ戻る</a></p>
+</footer>
+
+</body>
+</html>
