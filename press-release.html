@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>プレスリリース：産後ケア施設向けクラウド「mamacare」、沖縄県内施設への展開を開始 — scratch pages</title>
+<meta name="description" content="産後ケア施設（産後ケアセンター・助産院・子育て支援施設等）向けの予約管理・顧客管理・ケア記録クラウドプラットフォーム「mamacare（ママケア）」が沖縄県内施設への展開を開始。初期費用無料・2ヶ月間無料トライアル。" />
+<style>
+  :root {
+    --ink: #0E1B2E;
+    --ink-2: #1A2D4A;
+    --ink-3: #3A4A66;
+    --ink-soft: #6B7A92;
+    --paper: #FBFAF6;
+    --paper-2: #F2EEE6;
+    --line: rgba(14, 27, 46, 0.08);
+    --coral: #E76F51;
+    --coral-soft: #F4A38F;
+    --coral-bg: #FCEEE7;
+    --teal: #2A9D8F;
+    --teal-bg: #E5F2EF;
+    --gold: #D4A24C;
+    --shadow: 0 8px 24px rgba(14, 27, 46, 0.06);
+    --shadow-lg: 0 20px 60px rgba(14, 27, 46, 0.12);
+    --r: 20px;
+    --r-lg: 28px;
+    --container: 780px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* ヘッダー */
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--line);
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+  }
+  .page-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .page-header p.sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .page-header .release-meta {
+    margin-top: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .page-header .release-meta .meta-chip {
+    background: var(--paper-2);
+    color: var(--ink-3);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* リードボックス */
+  .lead-box {
+    margin-bottom: 40px;
+    background: var(--teal-bg);
+    border-radius: var(--r);
+    padding: 24px 28px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.9;
+  }
+  .lead-box strong { color: var(--teal); }
+
+  /* セクションカード */
+  .section-card {
+    margin-bottom: 32px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .section-card .sec-header {
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-card .sec-header .sec-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-card .sec-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .section-card .sec-body {
+    padding: 20px 28px 24px;
+  }
+
+  /* 本文 */
+  .sec-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .sec-body p:last-child { margin-bottom: 0; }
+  .sec-body strong { color: var(--ink); }
+
+  /* リスト */
+  .sec-body ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 16px;
+  }
+  .sec-body ul:last-child { margin-bottom: 0; }
+  .sec-body ul > li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-body ul > li:last-child { border-bottom: none; }
+  .sec-body ul > li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 17px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--coral-soft);
+  }
+  .sec-body ul > li .feat-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ハイライト / ノート */
+  .note {
+    background: #FFF8EE;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin: 16px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+  .note strong { color: #B8860B; }
+
+  /* テーブル */
+  .info-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .info-table th, .info-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .info-table th {
+    background: var(--paper-2);
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 12px;
+    white-space: nowrap;
+    width: 140px;
+  }
+  .info-table tr:last-child td, .info-table tr:last-child th {
+    border-bottom: none;
+  }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    padding: 40px 0 16px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="page-header">
+    <span class="badge">PRESS RELEASE</span>
+    <h1>産後ケア施設のための予約・カルテ・決済プラットフォーム<br />「mamacare（ママケア）」、沖縄県内施設への展開を開始</h1>
+    <p class="sub">初期費用無料・2ヶ月間の無料トライアル、オンラインでの初期設定サポートを提供</p>
+    <div class="release-meta">
+      <span class="meta-chip">配信日: 2026年8月3日</span>
+      <span class="meta-chip">運営: 平田亜紀子（個人事業主）</span>
+      <span class="meta-chip">https://mamacare.jp</span>
+    </div>
+  </header>
+
+  <div class="lead-box">
+    産後ケア施設（産後ケアセンター・助産院・子育て支援施設等）向けの<strong>予約管理・顧客管理・ケア記録クラウドプラットフォーム「mamacare（ママケア）」</strong>（https://mamacare.jp）を運営する平田亜紀子は、2025年のサービス提供開始以来、産後ケア施設の業務デジタル化を支援してきました。このたび、<strong>沖縄県内の産後ケア施設に向けた導入促進を開始</strong>します。初期費用無料・2ヶ月間の無料トライアルをご用意し、オンラインでの初期設定サポートも提供します。
+  </div>
+
+  <!-- 背景 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">1</div>
+      <h2>背景：産後ケアを取り巻く課題</h2>
+    </div>
+    <div class="sec-body">
+      <p>産後のママがケアを受けようとしても、空き状況を一覧で確認できる手段がありません。施設によって問い合わせ方法は電話・公式LINE・問い合わせフォームとバラバラで、一件ずつ連絡しては「満員です」「キャンセル待ちになります」と返される。体が最もきつい時期に、このやり取りを繰り返さなければなりません。</p>
+      <p>一方、施設側も電話予約・手書き台帳・口頭の申し送り・Excelでの顧客管理と、業務が分散した状態での対応を強いられています。予約受付のたびに手が止まり、満席時のキャンセル待ち連絡は手動で、スタッフ間の引き継ぎは紙やメモに頼る。ケアに集中したいのに、事務作業がその時間を奪っています。</p>
+      <p><strong>mamacareは、こうした課題を抱える産後ケア施設で実際に働くスタッフの視点から生まれたプラットフォームです。</strong></p>
+    </div>
+  </section>
+
+  <!-- サービス概要 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">2</div>
+      <h2>サービス概要</h2>
+    </div>
+    <div class="sec-body">
+      <p>mamacareは、電話・紙・Excelで分散していた産後ケア施設の業務（予約受付・顧客情報管理・スタッフ間の情報共有・決済処理）を一つのシステムに統合するクラウドSaaSです。ブラウザだけで利用できるPWAに対応しており、アプリのインストールは不要。スマートフォン・タブレット・PCから同じ操作で利用できます。</p>
+    </div>
+  </section>
+
+  <!-- おもな機能 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">3</div>
+      <h2>おもな機能</h2>
+    </div>
+    <div class="sec-body">
+      <ul>
+        <li><span class="feat-name">オンライン予約カレンダー</span> — ママがスマホで予約・キャンセルでき、空き枠は自動反映。満員時はキャンセル待ちリストに自動登録されます</li>
+        <li><span class="feat-name">LINE自動通知</span> — 予約完了通知・前日リマインダーを自動送信。確認電話や無断キャンセルを削減します</li>
+        <li><span class="feat-name">事前問診カルテ</span> — 2ステップ・約2分のスマホ問診。心の状態6項目を含む相談内容を事前に把握し、来院後すぐケアに入れます</li>
+        <li><span class="feat-name">経過表</span> — 25項目の時系列記録。体重はベビー成長グラフに自動同期されます</li>
+        <li><span class="feat-name">ベビー成長グラフ</span> — こども家庭庁の発育調査データに基づく男女別標準曲線（7段階パーセンタイル）と照合。1回ごとの増加量（g/日）を自動計算します</li>
+        <li><span class="feat-name">スタッフノート</span> — 4色カテゴリ・写真添付・ホワイトボード描画に対応。シフトが違っても情報を共有できます</li>
+        <li><span class="feat-name">オンライン事前決済</span> — Stripe連携によるカード事前決済で、代金未回収リスクを排除します</li>
+        <li><span class="feat-name">自治体報告書PDF出力</span> — 自治体への報告書作成を効率化します</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 導入効果 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">4</div>
+      <h2>導入効果（想定）</h2>
+    </div>
+    <div class="sec-body">
+      <ul>
+        <li><span class="feat-name">予約受付工数</span> — 電話対応1件あたり約5〜10分が、オンライン自動受付によりほぼゼロに（想定）</li>
+        <li><span class="feat-name">満席時の機会損失</span> — 待機リスト＋LINE自動通知で、キャンセルが出た際の連絡漏れを解消</li>
+        <li><span class="feat-name">スタッフ間の引き継ぎ</span> — デジタルカルテ・スタッフノートで、口頭や紙に頼らない情報共有を実現</li>
+        <li><span class="feat-name">代金未回収リスク</span> — オンライン事前決済により、請求後の未回収を防止（想定）</li>
+      </ul>
+      <div class="note"><strong>※</strong> 上記の数値・効果は機能設計に基づく想定です。導入施設の運用状況により結果は異なります。</div>
+    </div>
+  </section>
+
+  <!-- 料金・トライアル -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">5</div>
+      <h2>料金・トライアル</h2>
+    </div>
+    <div class="sec-body">
+      <p>基本プランは月額6,000円（税別）・年額72,000円（税別）。予約カレンダー管理、キャンセル管理、待機リスト受付、施設定員・プラン設定、顧客情報管理、スタッフアカウント無制限を含みます。</p>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr>
+            <th>基本プラン</th>
+            <td>月額6,000円（税別）／年額72,000円（税別）<br />予約カレンダー管理・キャンセル管理・待機リスト受付・施設定員／プラン設定・顧客情報管理・スタッフアカウント無制限</td>
+          </tr>
+          <tr>
+            <th>オプション</th>
+            <td>LINE予約確認通知 2,000円／LINEリマインド通知 1,000円／スタッフノート 2,200円／成長記録・グラフ表示 1,500円／ノート写真添付 1,000円／オンライン事前決済 3,000円／複数施設管理 4,000円（各月額・税別）<br />必要な機能だけを選択できます</td>
+          </tr>
+          <tr>
+            <th>トライアル</th>
+            <td>初期費用無料・2ヶ月間の無料トライアル期間あり・月次契約（縛りなし）</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 今後の展望 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">6</div>
+      <h2>今後の展望：産後ケアの「ホットペッパー」へ</h2>
+    </div>
+    <div class="sec-body">
+      <p>mamacareの最終目標は、産後ケアの「ホットペッパー」になることです。すべての施設が一覧で見えて、空き状況がひと目でわかり、そのまま予約できる。飲食店や美容室を探すのと同じくらい当たり前に、産後ケアを見つけられる社会を目指しています。</p>
+      <p>開発者は実際に産後ケア施設で働くスタッフです。最初は「施設のスタッフをもっと楽にしたい」という思いから開発を始めましたが、施設の中を良くするだけでは足りない、ママが施設を見つける仕組み自体が整っていないことに気づきました。</p>
+      <p>このたび、沖縄県内の産後ケアセンター・助産院・子育て支援施設への展開を本格化します。オンラインでの初期設定サポートを用意しており、県内の施設からのお問い合わせをお待ちしています。ケアに集中できる環境を、一緒につくっていきませんか。</p>
+    </div>
+  </section>
+
+  <!-- 事業者情報 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">7</div>
+      <h2>事業者情報</h2>
+    </div>
+    <div class="sec-body">
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>サービス名</th><td>mamacare（ママケア）</td></tr>
+          <tr><th>代表者</th><td>平田 亜紀子</td></tr>
+          <tr><th>事業形態</th><td>個人事業主</td></tr>
+          <tr><th>事業内容</th><td>産後ケア施設向け予約・顧客管理SaaS提供</td></tr>
+          <tr><th>サービスURL</th><td>https://mamacare.jp</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- お問い合わせ先 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">8</div>
+      <h2>お問い合わせ先</h2>
+    </div>
+    <div class="sec-body">
+      <p>mamacare サポート窓口<br />メール: <strong>support@mamacare.jp</strong></p>
+      <div class="note">サービス画面のスクリーンショット・画像素材をご入用の場合は、上記サポート窓口までご相談ください。機能の詳細・料金体系については https://mamacare.jp もあわせてご参照ください。</div>
+    </div>
+  </section>
+
+  <div class="footer">
+    mamacare Press Release 2026.08.03 — Powered by Scratch Pages
+  </div>
+
+</div>
+
+</body>
+</html>
