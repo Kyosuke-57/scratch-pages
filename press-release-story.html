@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>お腹が空いたらスマホで空きを探せるのに、産後ケアは「電話して聞いてみる」しかない。そのギャップを埋める「mamacare」 — scratch pages</title>
+<meta name="description" content="飲食店のようにスマホで空きを探せるのに、産後ケアはまだ電話で聞くしかない。このギャップを埋める「mamacare」が沖縄県内展開へ。" />
+<style>
+  :root {
+    --ink: #0E1B2E;
+    --ink-2: #1A2D4A;
+    --ink-3: #3A4A66;
+    --ink-soft: #6B7A92;
+    --paper: #FBFAF6;
+    --paper-2: #F2EEE6;
+    --line: rgba(14, 27, 46, 0.08);
+    --coral: #E76F51;
+    --coral-soft: #F4A38F;
+    --coral-bg: #FCEEE7;
+    --teal: #2A9D8F;
+    --teal-bg: #E5F2EF;
+    --gold: #D4A24C;
+    --shadow: 0 8px 24px rgba(14, 27, 46, 0.06);
+    --shadow-lg: 0 20px 60px rgba(14, 27, 46, 0.12);
+    --r: 20px;
+    --r-lg: 28px;
+    --container: 780px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* ヘッダー */
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--line);
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    letter-spacing: 0.08em;
+  }
+  .page-header h1 {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .page-header p.sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .page-header .release-meta {
+    margin-top: 20px;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+  .page-header .release-meta .meta-chip {
+    background: var(--paper-2);
+    color: var(--ink-3);
+    border-radius: 999px;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  /* リードボックス */
+  .lead-box {
+    margin-bottom: 40px;
+    background: var(--teal-bg);
+    border-radius: var(--r);
+    padding: 24px 28px;
+    font-size: 14.5px;
+    color: var(--ink-2);
+    line-height: 1.9;
+  }
+  .lead-box strong { color: var(--teal); }
+
+  /* セクションカード */
+  .section-card {
+    margin-bottom: 32px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .section-card .sec-header {
+    padding: 20px 28px 16px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-card .sec-header .sec-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-card .sec-header h2 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .section-card .sec-body {
+    padding: 20px 28px 24px;
+  }
+
+  /* 本文 */
+  .sec-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .sec-body p:last-child { margin-bottom: 0; }
+  .sec-body strong { color: var(--ink); }
+
+  /* リスト */
+  .sec-body ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 16px;
+  }
+  .sec-body ul:last-child { margin-bottom: 0; }
+  .sec-body ul > li {
+    padding: 8px 0 8px 20px;
+    position: relative;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+    border-bottom: 1px solid var(--line);
+  }
+  .sec-body ul > li:last-child { border-bottom: none; }
+  .sec-body ul > li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 17px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--coral-soft);
+  }
+  .sec-body ul > li .feat-name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ハイライト / ノート */
+  .note {
+    background: #FFF8EE;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 14px 18px;
+    margin: 16px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-3);
+    line-height: 1.7;
+  }
+  .note strong { color: #B8860B; }
+
+  /* テーブル */
+  .info-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .info-table th, .info-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .info-table th {
+    background: var(--paper-2);
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 12px;
+    white-space: nowrap;
+    width: 140px;
+  }
+  .info-table tr:last-child td, .info-table tr:last-child th {
+    border-bottom: none;
+  }
+
+  /* 比較ブロック */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  @media (max-width: 640px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  .comparison-card {
+    border-radius: 14px;
+    padding: 20px;
+    position: relative;
+  }
+  .comparison-card.teal {
+    background: var(--teal-bg);
+    border-left: 4px solid var(--teal);
+  }
+  .comparison-card.coral {
+    background: var(--coral-bg);
+    border-left: 4px solid var(--coral);
+  }
+  .comparison-card h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .comparison-card.teal h3 { color: var(--teal); }
+  .comparison-card.coral h3 { color: var(--coral); }
+  .comparison-card .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.6;
+  }
+  .comparison-card .flow-item {
+    padding: 6px 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 8px;
+  }
+  .comparison-card.teal .flow-item { border-left: 2px solid var(--teal); }
+  .comparison-card.coral .flow-item { border-left: 2px solid var(--coral); }
+
+  /* 配信キットリンク */
+  .kit-links { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .kit-link {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    text-decoration: none;
+    color: var(--ink-2);
+    transition: all 0.15s;
+  }
+  .kit-link:hover { background: var(--paper-2); border-color: var(--coral); }
+  .kit-icon { font-size: 24px; flex-shrink: 0; }
+  .kit-body { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+  .kit-body strong { font-size: 14px; color: var(--ink); }
+  .kit-desc { font-size: 12px; color: var(--ink-soft); }
+  .kit-arrow { color: var(--coral); font-size: 18px; }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    padding: 40px 0 16px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="page-header">
+    <span class="badge">PRESS RELEASE / STORY</span>
+    <h1>お腹が空いたらスマホで空きを探せるのに、産後ケアは「電話して聞いてみる」しかない。そのギャップを埋める「mamacare」、沖縄県内展開へ</h1>
+    <p class="sub">飲食店のようにスマホで空きを探せるのに、産後ケアはまだ電話で聞くしかない。この矛盾を埋めるクラウドが登場。</p>
+    <div class="release-meta">
+      <span class="meta-chip">配信日 2026年8月3日</span>
+      <span class="meta-chip">運営 平田亜紀子</span>
+      <span class="meta-chip">https://mamacare.jp</span>
+    </div>
+  </header>
+
+  <div class="lead-box">
+    お腹が空いたら、スマホで検索する。空いているお店が一覧で出てきて、そのまま予約できる。では、産後ケアは？——施設によって問い合わせ方法は電話・公式LINE・フォームとバラバラ。空き状況を一覧で見られる場所は、どこにもない。同じ沖縄の中で、飲食店にだけある「当たり前」が、産後ケアにはまだないのです。
+  </div>
+
+  <!-- セクション1 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">1</div>
+      <h2>私たちの「当たり前」</h2>
+    </div>
+    <div class="sec-body">
+      <p>お腹が空いたらスマホで検索する。空いている店が一覧で出てくる。空き状況を確認して、そのまま予約する。</p>
+      <p>食事も、美容室も、病院も。誰も「何件も電話して空きを聞いて回る」なんてしない。</p>
+    </div>
+  </section>
+
+  <!-- セクション2 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">2</div>
+      <h2>産後ケアの「現実」</h2>
+    </div>
+    <div class="sec-body">
+      <p>ところが産後ケアは違う。施設ごとに問い合わせ方法がバラバラ（電話の施設、公式LINEの施設、問い合わせフォームだけの施設）。空き状況を一覧で見られる場所がない。</p>
+      <p>産後の、体が一番きつい時期に、ママは一件一件、手段を変えて連絡する。返ってくるのは「満員です」「キャンセル待ちになります」の繰り返し。</p>
+
+      <!-- 比較ブロック -->
+      <div class="comparison-grid">
+        <div class="comparison-card teal">
+          <h3>飲食店を探すとき</h3>
+          <div class="flow">
+            <div class="flow-item">スマホで検索</div>
+            <div class="flow-item">一覧表示</div>
+            <div class="flow-item">空き確認</div>
+            <div class="flow-item">そのまま予約</div>
+          </div>
+        </div>
+        <div class="comparison-card coral">
+          <h3>産後ケアを探すとき</h3>
+          <div class="flow">
+            <div class="flow-item">施設ごとに手段が違う</div>
+            <div class="flow-item">電話/LINE/フォームを一件ずつ</div>
+            <div class="flow-item">「満員です」</div>
+            <div class="flow-item">また次の施設へ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション3 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">3</div>
+      <h2>なぜ、こんなギャップが生まれたのか</h2>
+    </div>
+    <div class="sec-body">
+      <p>産後ケア施設の多くは、電話・紙の台帳・Excelで運営されている。予約は手書き、顧客情報はファイル、引き継ぎは口頭とメモ。</p>
+      <p>業界全体のデジタル化が遅れていることが、ママと施設の双方に負担をかけている。施設側も「ケアに集中したいのに、事務作業に時間を取られる」と感じている。</p>
+    </div>
+  </section>
+
+  <!-- セクション4 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">4</div>
+      <h2>そのギャップを埋める「mamacare」</h2>
+    </div>
+    <div class="sec-body">
+      <p>産後ケア施設向けの予約・カルテ・決済クラウド。ママはスマホから予約でき、空き枠は自動反映。LINEで予約完了通知・前日リマインダー。</p>
+      <p>事前問診カルテ（約2分）で来院前に相談内容を共有。経過表・ベビー成長グラフ・スタッフノートで記録を一元化。オンライン事前決済で支払いも完結。</p>
+      <p>ブラウザだけで使えるPWAで、アプリのインストールも不要。</p>
+    </div>
+  </section>
+
+  <!-- セクション5 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">5</div>
+      <h2>実現したい未来</h2>
+    </div>
+    <div class="sec-body">
+      <p>産後ケアの「ホットペッパー」。すべての施設が一覧で見えて、空き状況がひと目でわかって、そのまま予約できる。</p>
+      <p>飲食店や美容室を探すのと同じくらい当たり前に、産後ケアを探せる社会へ。</p>
+    </div>
+  </section>
+
+  <!-- セクション6 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">6</div>
+      <h2>開発者について</h2>
+    </div>
+    <div class="sec-body">
+      <p>開発者は、実際に産後ケア施設で働くスタッフ。最初は「施設のスタッフをもっと楽にしたい」から開発を始めた。</p>
+      <p>作っていくうちに、施設の中を良くするだけでは足りない、ママが施設を見つける仕組み自体が社会に整っていないことに気づいた。</p>
+      <p>このたび沖縄県内の産後ケアセンター・助産院・子育て支援施設への展開を開始。オンラインでの初期設定サポートを用意している。</p>
+    </div>
+  </section>
+
+  <!-- セクション7 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">7</div>
+      <h2>リリース情報</h2>
+    </div>
+    <div class="sec-body">
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>サービス名</th><td>mamacare（ママケア）</td></tr>
+          <tr><th>代表者</th><td>平田 亜紀子</td></tr>
+          <tr><th>事業形態</th><td>個人事業主</td></tr>
+          <tr><th>事業内容</th><td>産後ケア施設向け予約・顧客管理SaaS提供</td></tr>
+          <tr><th>サービスURL</th><td>https://mamacare.jp</td></tr>
+          <tr><th>料金</th><td>基本プラン月額6,000円（税別）・年額72,000円（税別）。オプション制（LINE通知・スタッフノート・成長記録・オンライン事前決済・複数施設管理など）。初期費用無料・2ヶ月間無料トライアル・月次契約（縛りなし）</td></tr>
+          <tr><th>お問い合わせ</th><td>support@mamacare.jp</td></tr>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- セクション8 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">8</div>
+      <h2>取材のご案内</h2>
+    </div>
+    <div class="sec-body">
+      <p>開発者インタビュー、施設での画面デモ、スクリーンショット画像素材をご用意しています。ご取材のご希望は <strong>support@mamacare.jp</strong> まで。</p>
+      <div class="note">メディア各社のご取材に対応いたします。サービス画面のデモ・機能の詳細説明・画像素材の提供が可能です。お気軽にお問い合わせください。</div>
+    </div>
+  </section>
+
+  <!-- セクション9 -->
+  <section class="section-card">
+    <div class="sec-header">
+      <div class="sec-num">9</div>
+      <h2>関連リンク</h2>
+    </div>
+    <div class="sec-body">
+      <div class="kit-links">
+        <a class="kit-link" href="/press-release">
+          <span class="kit-icon">📄</span>
+          <span class="kit-body">
+            <strong>公式リリース（フォーマル版）</strong>
+            <span class="kit-desc">正式なプレスリリース（背景・機能・料金・展望を網羅）</span>
+          </span>
+          <span class="kit-arrow">→</span>
+        </a>
+        <a class="kit-link" href="/press-media-list">
+          <span class="kit-icon">📋</span>
+          <span class="kit-body">
+            <strong>配信先リスト（沖縄県メディア）</strong>
+            <span class="kit-desc">窓口・電話/FAX・送付方法・優先度を一覧化</span>
+          </span>
+          <span class="kit-arrow">→</span>
+        </a>
+        <a class="kit-link" href="/press-send-guide">
+          <span class="kit-icon">✉️</span>
+          <span class="kit-body">
+            <strong>送付ガイド・メール文面</strong>
+            <span class="kit-desc">コピペで使えるメール雛形・フォローアップ・想定Q&A</span>
+          </span>
+          <span class="kit-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="footer">
+    mamacare Press Release Story 2026.08.03 — Powered by Scratch Pages
+  </div>
+
+</div>
+
+</body>
+</html>
