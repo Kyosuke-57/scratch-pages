@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>個人事業主でも補助金に登録できる？コンソーシアム vs OEM 徹底比較 — scratch pages</title>
+<style>
+  :root {
+    --ink: #0E1B2E;
+    --ink-2: #1A2D4A;
+    --ink-3: #3A4A66;
+    --ink-soft: #6B7A92;
+    --paper: #FBFAF6;
+    --paper-2: #F2EEE6;
+    --line: rgba(14, 27, 46, 0.08);
+    --coral: #E76F51;
+    --coral-soft: #F4A38F;
+    --coral-bg: #FCEEE7;
+    --teal: #2A9D8F;
+    --teal-bg: #E5F2EF;
+    --gold: #D4A24C;
+    --shadow: 0 8px 24px rgba(14, 27, 46, 0.06);
+    --shadow-lg: 0 20px 60px rgba(14, 27, 46, 0.12);
+    --r: 20px;
+    --r-lg: 28px;
+    --container: 780px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Sans", "Noto Sans JP", sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.8;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 32px 20px 100px;
+  }
+
+  /* ヘッダー */
+  .page-header {
+    text-align: center;
+    margin-bottom: 48px;
+    padding: 40px 0 32px;
+    border-bottom: 2px solid var(--line);
+  }
+  .page-header .badge {
+    display: inline-block;
+    background: var(--coral-bg);
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+  }
+  .page-header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    margin-bottom: 8px;
+  }
+  .page-header p.sub {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .page-header .target-box {
+    margin-top: 20px;
+    background: var(--teal-bg);
+    border-radius: var(--r);
+    padding: 16px 20px;
+    font-size: 13px;
+    color: var(--teal);
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  /* セクションカード */
+  .section-card {
+    margin-bottom: 40px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .section-card .section-header {
+    padding: 24px 32px 20px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .section-card .section-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--coral);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-card .section-title-area { flex: 1; }
+  .section-card .section-title-area h2 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+  .section-card .section-title-area .section-time {
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .section-body {
+    padding: 24px 32px 28px;
+  }
+
+  /* 本文 */
+  .section-body p {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .section-body p:last-child { margin-bottom: 0; }
+
+  /* リスト */
+  .section-body ol, .section-body ul {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 16px;
+  }
+  .section-body ol:last-child, .section-body ul:last-child { margin-bottom: 0; }
+
+  .section-body ol > li {
+    counter-increment: sub-counter;
+    padding: 8px 0 8px 36px;
+    position: relative;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .section-body ol > li:last-child { border-bottom: none; }
+  .section-body ol {
+    counter-reset: sub-counter;
+  }
+  .section-body ol > li::before {
+    content: counter(sub-counter);
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--paper-2);
+    color: var(--ink-soft);
+    font-size: 11px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .section-body ul > li {
+    padding: 6px 0 6px 20px;
+    position: relative;
+    font-size: 14px;
+    color: var(--ink-2);
+  }
+  .section-body ul > li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 15px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--coral-soft);
+  }
+
+  /* ハイライトボックス */
+  .highlight {
+    background: var(--coral-bg);
+    border-left: 4px solid var(--coral);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .highlight strong { color: var(--coral); }
+
+  .tip {
+    background: var(--teal-bg);
+    border-left: 4px solid var(--teal);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .tip strong { color: var(--teal); }
+
+  .warn {
+    background: #FFF8EE;
+    border-left: 4px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.7;
+  }
+  .warn strong { color: #B8860B; }
+
+  /* テーブル */
+  .info-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .info-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .info-table th, .info-table td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .info-table th {
+    background: var(--paper-2);
+    font-weight: 600;
+    color: var(--ink-soft);
+    font-size: 12px;
+    white-space: nowrap;
+    width: 130px;
+  }
+  .info-table tr:last-child td, .info-table tr:last-child th {
+    border-bottom: none;
+  }
+  .info-table code {
+    font-size: 12px;
+    background: var(--paper-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    word-break: break-all;
+  }
+
+  /* 比較テーブル（コンソーシアム vs OEM） */
+  .compare-table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+  }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 640px;
+  }
+  .compare-table th, .compare-table td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    line-height: 1.7;
+  }
+  .compare-table thead th {
+    background: var(--paper-2);
+    font-weight: 700;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .compare-table thead th.c-a { color: var(--teal); }
+  .compare-table thead th.c-b { color: var(--coral); }
+  .compare-table .col-item {
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: var(--paper-2);
+    white-space: nowrap;
+    width: 110px;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table td.win-a { background: rgba(42, 157, 143, 0.05); }
+  .compare-table td.win-b { background: rgba(231, 111, 81, 0.05); }
+
+  /* 判定バッジ */
+  .judge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 999px;
+    margin-right: 6px;
+    vertical-align: 1px;
+    white-space: nowrap;
+  }
+  .judge.a { background: var(--teal-bg); color: var(--teal); }
+  .judge.b { background: var(--coral-bg); color: var(--coral); }
+  .judge.tie { background: var(--paper-2); color: var(--ink-soft); }
+
+  /* 2方式のカード */
+  .method-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 16px 0;
+  }
+  @media (max-width: 720px) { .method-grid { grid-template-columns: 1fr; } }
+  .method-card {
+    border-radius: var(--r-lg);
+    padding: 24px;
+    background: #fff;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--line);
+  }
+  .method-card .m-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+  }
+  .method-card.a .m-badge { background: var(--teal-bg); color: var(--teal); }
+  .method-card.b .m-badge { background: var(--coral-bg); color: var(--coral); }
+  .method-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+  .method-card p { font-size: 13px; color: var(--ink-2); margin-bottom: 12px; line-height: 1.7; }
+  .method-card .flow {
+    background: var(--paper-2);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.9;
+    font-weight: 500;
+  }
+  .method-card .flow .arrow { color: var(--ink-soft); }
+  .method-card .flow .note { font-size: 11.5px; color: var(--ink-soft); font-weight: 400; }
+
+  /* 結論バナー */
+  .verdict {
+    background: linear-gradient(135deg, var(--teal-bg) 0%, #D6F0EC 100%);
+    border: 1px solid rgba(42, 157, 143, 0.3);
+    border-radius: var(--r-lg);
+    padding: 24px 28px;
+    margin: 16px 0;
+  }
+  .verdict h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 10px;
+  }
+  .verdict p, .verdict li {
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.8;
+  }
+  .verdict ul { padding-left: 20px; margin-top: 6px; }
+  .verdict ul li { margin-bottom: 4px; }
+
+  /* リンクカード */
+  .link-section {
+    margin-top: 48px;
+    background: #fff;
+    border-radius: var(--r-lg);
+    box-shadow: var(--shadow);
+    padding: 28px 32px;
+  }
+  .link-section h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+  .link-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .link-grid a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--ink-2);
+    transition: background 0.15s;
+  }
+  .link-grid a:hover { background: var(--paper-2); }
+  .link-grid a .link-label { font-weight: 500; flex: 1; }
+  .link-grid a .link-url { font-size: 11px; color: var(--ink-soft); }
+
+  .link-grid a .link-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .link-icon.coral-bg { background: var(--coral-bg); }
+  .link-icon.teal-bg { background: var(--teal-bg); }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    padding: 40px 0 16px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--line);
+    margin-top: 48px;
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 20px 16px 60px; }
+    .page-header h1 { font-size: 22px; }
+    .section-header, .section-body { padding: 20px; }
+    .link-section { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- トップに戻る -->
+  <div style="margin-bottom: 24px;">
+    <a href="/" style="display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--ink-soft);text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='var(--coral)'" onmouseout="this.style.color=''">← Scratch Pages トップに戻る</a>
+  </div>
+
+  <!-- ========== ヘッダー ========== -->
+  <div class="page-header">
+    <span class="badge">mamacare（ママケア）</span>
+    <h1>個人事業主でも補助金に登録できる？<br>「コンソーシアム」と「OEM」徹底比較</h1>
+    <p class="sub">デジタル化・AI導入補助金2026 への登録方法を、やさしく解説します</p>
+    <div class="target-box">👤 このページは「補助金にツールを登録したい個人事業主」向けです</div>
+  </div>
+
+  <!-- ========== はじめに ========== -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">📖</div>
+      <div class="section-title-area"><h2>最初に読んでください</h2></div>
+    </div>
+    <div class="section-body">
+      <p>
+        mamacare を「<strong>デジタル化・AI導入補助金2026</strong>」（旧IT導入補助金）の対象ツールにするには、<strong>IT導入支援事業者</strong>として国に登録する必要があります。
+      </p>
+      <p>
+        ところが、この登録には「<strong>法人であること</strong>」が求められる場面があり、<strong>個人事業主は単独では登録できません</strong>。
+      </p>
+      <p>
+        そこで使える方法が2つあります。
+      </p>
+      <div class="highlight">
+        <strong>⚔️ 2つの方法</strong><br>
+        <strong>方法A：コンソーシアム</strong>（法人の共同体に「構成員」として参加）<br>
+        <strong>方法B：OEM</strong>（既存の株式会社の製品として登録してもらう）<br>
+        <br>
+        このページでは、この2つを徹底比較して「<strong>あなたにはどっちがいいか</strong>」を解説します。
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== なぜ登録できないのか ========== -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">1</div>
+      <div class="section-title-area">
+        <h2>なぜ個人事業主は単独で登録できないの？</h2>
+        <p class="section-time">制度のしくみがわかると、話が早いです</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <p>
+        IT導入支援事業者の登録形態は、<strong>次の2つしかありません</strong>。
+      </p>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr>
+            <th>法人（単独）</th>
+            <td>1つの法人が、登録から販売・サポートまで<strong>全部を1社で</strong>行う。個人事業主はこの形では登録<strong>不可</strong>。</td>
+          </tr>
+          <tr>
+            <th>コンソーシアム</th>
+            <td><strong>幹事社（法人）1社</strong>＋<strong>構成員1者以上</strong>で共同体を作る。<strong>個人事業主は「構成員」としてのみ登録できる</strong>。</td>
+          </tr>
+        </table>
+      </div>
+      <div class="tip">
+        <strong>💡 ここがポイント</strong><br>
+        つまり個人事業主は「法人と組む」ことが<strong>必須</strong>です。その「組む方法」が2パターンある、というのがこのページのテーマです。
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 2つの方法のしくみ ========== -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">2</div>
+      <div class="section-title-area">
+        <h2>2つの方法のしくみ（お金の流れ）</h2>
+        <p class="section-time">「誰が登録者で、誰に代金が入るか」を見てください</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="method-grid">
+        <!-- 方法A -->
+        <div class="method-card a">
+          <span class="m-badge">方法A おすすめ</span>
+          <h3>🏛️ コンソーシアムに参加</h3>
+          <p>
+            <strong>あなた＝構成員として正式に登録</strong>されます。<br>
+            幹事社（法人）が窓口・事務手続きを担当し、あなたはツールの提供者として制度に名前が残ります。
+          </p>
+          <div class="flow">
+            🏥 施設（産後ケア施設）<br>
+            <span class="arrow">　↓ 月額利用料（そのまま全額）</span><br>
+            👩‍💻 あなた（構成員・個人事業主）<br>
+            <span class="note">※ 支払い先が複数になる場合は、それぞれを構成員登録すればOK</span>
+          </div>
+        </div>
+        <!-- 方法B -->
+        <div class="method-card b">
+          <span class="m-badge">方法B 緊急避難的</span>
+          <h3>📦 既存株式会社のOEMとして登録</h3>
+          <p>
+            <strong>株式会社Xが「法人（単独）」で登録</strong>し、mamacareをX社の製品として販売。<br>
+            あなたは制度上は表に出ず、X社とOEM供給契約を結んで裏方（供給元）に回ります。
+          </p>
+          <div class="flow">
+            🏥 施設<br>
+            <span class="arrow">　↓ 月額利用料（登録価格）</span><br>
+            🏢 株式会社X（登録事業者）<br>
+            <span class="arrow">　↓ 供給料（マージンが差し引かれる）</span><br>
+            👩‍💻 あなた（OEM供給元）
+          </div>
+        </div>
+      </div>
+
+      <div class="warn">
+        <strong>⚠️ 補助金では「登録価格」と「実際の請求価格」が一致している必要があります</strong><br>
+        OEM方式でX社がマージンを価格に上乗せすると、価格資料とズレてトラブルになる可能性があります。結局「あなたの取り分が減る」か「価格が上がって売りにくくなる」のどちらかに寄ります。
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== 比較表 ========== -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">3</div>
+      <div class="section-title-area">
+        <h2>7つのポイントで徹底比較</h2>
+        <p class="section-time">👍 = コンソーシアム有利 ／ 👎 = OEM有利 ／ 🤝 = ほぼ互角</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th class="col-item">比較ポイント</th>
+              <th class="c-a">🏛️ コンソーシアム</th>
+              <th class="c-b">📦 OEM方式</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="col-item">あなたの立場</td>
+              <td class="win-a"><span class="judge a">👍 有利</span><br>構成員として正式登録。実績や身分が制度に残る</td>
+              <td>制度上は無名。X社との契約がすべて</td>
+            </tr>
+            <tr>
+              <td class="col-item">① 販売実績<br><span style="font-size:11px;">（最重要）</span></td>
+              <td class="win-a"><span class="judge a">👍 有利</span><br><strong>あなたの既存顧客をそのまま実績として登録できる</strong>。幹事社は販売実績要件が免除される</td>
+              <td>X社自身に販売実績が必要。<strong>あなたの実績はX社の実績にならない</strong>ため、既存顧客との契約名義をX社に移す再契約作業が必要</td>
+            </tr>
+            <tr>
+              <td class="col-item">② マージン</td>
+              <td class="win-a"><span class="judge a">👍 有利</span><br>施設からの代金を直接受け取れる。マージンなし</td>
+              <td>X社のマージン（販売価格と供給価格の差）が<strong>販売期間中ずっと</strong>発生</td>
+            </tr>
+            <tr>
+              <td class="col-item">③ 顧客関係</td>
+              <td class="win-a"><span class="judge a">👍 有利</span><br>施設との関係があなたに残る</td>
+              <td>施設は「X社の顧客」になる。決別したら顧客を失うリスク</td>
+            </tr>
+            <tr>
+              <td class="col-item">④ 手続きの手間</td>
+              <td>構成員の登録書類（本人確認・納税証明書・確定申告書など）＋幹事社との協定書が必要</td>
+              <td class="win-b"><span class="judge b">👎 有利</span><br>あなたの書類提出はゼロ。X社がすべて実施</td>
+            </tr>
+            <tr>
+              <td class="col-item">⑤ 依存リスク</td>
+              <td class="win-a"><span class="judge a">👍 有利</span><br>幹事社の登録取消で連鎖取消はあるが、あなたの実績は制度に残る</td>
+              <td>X社の倒産・契約終了で<strong>ツール登録・顧客・ブランドを丸ごと失う</strong>リスク</td>
+            </tr>
+            <tr>
+              <td class="col-item">⑥ 義務</td>
+              <td>構成員も効果報告などへの協力義務あり（業務分担契約で明確化）</td>
+              <td>名義上はX社のみ。でも実務をあなたが担うなら<strong>同じ仕事をマージン込みで</strong>やることに</td>
+            </tr>
+            <tr>
+              <td class="col-item">⑦ 施設からの信用</td>
+              <td>窓口は幹事社（法人）</td>
+              <td>窓口はX社（法人）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight">
+        <strong>🏆 比較の結果：7項目中、コンソーシアムが5勝・互角2。OEMが勝っているのは「手続きの手間」だけです。</strong>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== 結論 ========== -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">4</div>
+      <div class="section-title-area">
+        <h2>あなたの場合はどっち？</h2>
+        <p class="section-time">mamacareには既存顧客がすでに複数あります</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="verdict">
+        <h3>✅ 結論：コンソーシアム（構成員）が圧倒的に有利です</h3>
+        <ul>
+          <li><strong>既存の販売実績がそのまま使える</strong> — コンソーシアムなら再契約作業ゼロで登録要件を満たせます。OEMでは既存顧客全員と契約名義を移す大作業が発生します</li>
+          <li><strong>マージンがかからない</strong> — 売上の一部を法人に取られ続けることがありません</li>
+          <li><strong>顧客関係があなたに残る</strong> — 事業を誰かに乗っ取られるリスクが低い</li>
+        </ul>
+      </div>
+
+      <p><strong>OEM方式が向くのはこんな人：</strong></p>
+      <ul>
+        <li>まだ顧客が1社もいない（販売実績ゼロ）</li>
+        <li>補助金の手続きを全部、丸ごと誰かに任せたい</li>
+        <li>提携する法人が強い営業力を持っていて、売上拡大の見返りとしてマージンを払う価値がある</li>
+      </ul>
+      <p style="margin-top:12px;">
+        mamacareの場合はいずれも当てはまらないため、<strong>コンソーシアム構成員で進めるのが最善手</strong>です。
+      </p>
+
+    </div>
+  </div>
+
+  <!-- ========== 幹事社探し ========== -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">5</div>
+      <div class="section-title-area">
+        <h2>コンソーシアムで進めるなら：幹事社を探そう</h2>
+        <p class="section-time">幹事社になる法人の条件と、探し方・交渉ポイント</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <p><strong>幹事社（法人）に求められる条件：</strong></p>
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>国内法人</th><td>日本国内で登記された法人（履歴事項全部証明書・法人番号）</td></tr>
+          <tr><th>事業基盤</th><td>安定的な事業基盤（<strong>直近2期分の決算書</strong>）</td></tr>
+          <tr><th>コンプライアンス</th><td>補助金の停止処分を受けていない・反社会的勢力でない・納税証明書</td></tr>
+          <tr><th>IT環境</th><td>gBizIDプライム・SECURITY ACTION宣言・独自ドメインのメールアドレス</td></tr>
+          <tr><th>支援体制</th><td>導入支援・フォローアップの体制（あなたが担うので実質OK）</td></tr>
+        </table>
+      </div>
+
+      <div class="tip">
+        <strong>💡 幹事社に「販売実績」は不要です！</strong><br>
+        販売実績は<strong>あなた（構成員）が持っている</strong>ので、コンソーシアム全体の要件を満たせます。「ソフトウェア販売の実績はないけど、きちんと決算があるIT系の会社」がベストマッチです。
+      </div>
+
+      <p><strong>幹事社の探し方：</strong></p>
+      <ol>
+        <li><strong>よろず支援拠点に依頼</strong> — 「コンソーシアム構成員として登録したいので、幹事社を紹介してほしい」と相談（OEM提案は一旦保留でOK）</li>
+        <li><strong>商工会議所・中小企業団体中央会</strong> — 地域の法人とのマッチング実績あり</li>
+        <li><strong>補助金申請支援の会社</strong> — 幹事社ニーズに慣れていて、幹事社を引き受ける事業者も多い</li>
+        <li><strong>既存顧客の施設と取引のあるIT企業・経営支援会社</strong></li>
+      </ol>
+
+      <p><strong>幹事社との交渉ポイント（協定書で必ず契約化）：</strong></p>
+      <ul>
+        <li><strong>業務分担</strong> — 補助金手続きは幹事社、開発・サポート・効果報告の実務はあなた</li>
+        <li><strong>費用分担</strong> — 幹事社の運営コストをどう負担するか（マージンではなく「協力費」の形か、無償か）</li>
+        <li><strong>離脱条項</strong> — 幹事社都合で登録が消えた場合の、あなたの実績とツールの扱い</li>
+        <li><strong>知的財産権</strong> — mamacareの権利はあなたに帰属することを明記</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <!-- ========== 用意する書類 ========== -->
+  <div class="section-card">
+    <div class="section-header">
+      <div class="section-num">6</div>
+      <div class="section-title-area">
+        <h2>構成員登録に用意する書類</h2>
+        <p class="section-time">どれもすでに持っているものばかりです</p>
+      </div>
+    </div>
+    <div class="section-body">
+
+      <div class="info-table-wrap">
+        <table class="info-table">
+          <tr><th>本人確認書類</th><td>運転免許証（有効期限内）／住民票の写し（発行から3ヶ月以内）のいずれか</td></tr>
+          <tr><th>納税証明書</th><td>所得税の直近の納税証明書（その1またはその2）</td></tr>
+          <tr><th>確定申告書の控え</th><td>令和7年（2025年）分（やむを得ない場合のみ令和6年分）</td></tr>
+          <tr><th>決算書</th><td>青色申告の方：青色申告決算書 ／ 白色申告の方：収支内訳書（直近分）</td></tr>
+          <tr><th>販売実績一覧</th><td>事務局指定の様式に、mamacareの既存顧客の情報を記載（ITツール1種類につき1社以上の取引先）</td></tr>
+        </table>
+      </div>
+
+      <div class="tip">
+        <strong>🔒 安心ポイント：構成員（個人）の書類は幹事社から閲覧できない仕組みです</strong><br>
+        あなたの顧客情報や個人情報を幹事社に開示せずに登録できます。
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== 便利リンク ========== -->
+  <div class="link-section">
+    <h2>🔗 便利リンク</h2>
+
+    <div class="link-grid">
+      <a href="https://it-shien.smrj.go.jp/itvendor/about/" target="_blank">
+        <span class="link-icon coral-bg">🏛️</span>
+        <span class="link-label">IT導入支援事業者とは（公式）</span>
+        <span class="link-url">it-shien.smrj.go.jp/itvendor/about/</span>
+      </a>
+      <a href="https://it-shien.smrj.go.jp/pdf/it2026_touroku_it_jigyosha.pdf" target="_blank">
+        <span class="link-icon coral-bg">📋</span>
+        <span class="link-label">IT導入支援事業者 登録要領（PDF）</span>
+        <span class="link-url">登録要件21項目の原文</span>
+      </a>
+      <a href="https://console.it-shien.smrj.go.jp/IT-01/" target="_blank">
+        <span class="link-icon teal-bg">🖥️</span>
+        <span class="link-label">IT事業者ポータル（申請はここから）</span>
+        <span class="link-url">console.it-shien.smrj.go.jp/IT-01/</span>
+      </a>
+      <a href="/it-subsidy-guide" target="_blank">
+        <span class="link-icon teal-bg">📖</span>
+        <span class="link-label">デジタル化・AI導入補助金2026 申請マニュアル（別ページ）</span>
+        <span class="link-url">gBizID・SECURITY ACTION等の準備手順</span>
+      </a>
+      <a href="mailto:support@mamacare.jp">
+        <span class="link-icon coral-bg">✉️</span>
+        <span class="link-label">mamacare 問い合わせ</span>
+        <span class="link-url">support@mamacare.jp</span>
+      </a>
+    </div>
+
+    <div class="warn" style="margin-top:16px;">
+      <strong>⚠️ 最後に必ず覚えておいてほしいこと</strong><br>
+      · 申請内容にウソがあると、登録が取り消されて補助金を返さなければならなくなります<br>
+      · 制度のルールは毎年変わります。申請する前に必ず<a href="https://it-shien.smrj.go.jp/itvendor/" target="_blank" style="color:var(--coral);font-weight:600;">公式サイト</a>で最新の情報を確認してください<br>
+      · 幹事社・提携法人との契約書は、弁護士や行政書士に必ずレビューしてもらいましょう（特にIP帰属・顧客帰属・解約条件）
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/" style="display:inline-flex;align-items:center;gap:4px;font-size:12px;color:var(--ink-soft);text-decoration:none;margin-bottom:12px;" onmouseover="this.style.color='var(--coral)'" onmouseout="this.style.color=''">← Scratch Pages トップに戻る</a><br>
+    mamacare（ママケア） — 産後ケア施設向け予約・顧客管理プラットフォーム<br>
+    <a href="https://mamacare.jp" style="color:var(--ink-soft);">https://mamacare.jp</a>
+  </div>
+
+</div>
+
+</body>
+</html>
